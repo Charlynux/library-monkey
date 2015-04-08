@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -45,20 +46,33 @@ public class UrlProviderTest {
 
     @Test
     public void should_return_url_from_cms_page() throws Exception {
-        when(httpClient.execute(any(HttpGet.class))).thenReturn(responseWith("odyssee-mediatheque"));
+        when(httpClient.execute(any(HttpGet.class))).thenReturn(responseFromFile("odyssee-mediatheque"));
 
         urlProvider.findUrl();
 
         assertThat(urlProvider.getUrl()).isEqualTo("http://195.132.121.21/");
     }
 
+    @Test
+    public void should_let_default_url_when_site_return_blank_page() throws Exception {
+        when(httpClient.execute(any(HttpGet.class))).thenReturn(responseWith("<hmtl></html>"));
 
-    private HttpResponse responseWith(String bodyFileName) throws IOException {
+        urlProvider.findUrl();
+
+        assertThat(urlProvider.getUrl()).isEqualTo("");
+    }
+
+    private HttpResponse responseFromFile(String bodyFileName) throws IOException {
+        final String responseBody = new String(Files.readAllBytes(Paths.get(String.format("src/test/resources/pages/%s.html", bodyFileName))));
+        return responseWith(responseBody);
+    }
+
+    private HttpResponse responseWith(String responseBody) throws UnsupportedEncodingException {
         int statusCode = HttpStatus.SC_OK;
         HttpResponse response = new BasicHttpResponse(new BasicStatusLine(
                 new ProtocolVersion("HTTP", 1, 1), statusCode, ""));
         response.setStatusCode(statusCode);
-        response.setEntity(new StringEntity(new String(Files.readAllBytes(Paths.get(String.format("src/test/resources/pages/%s.html", bodyFileName))))));
+        response.setEntity(new StringEntity(responseBody));
         return response;
     }
 }
