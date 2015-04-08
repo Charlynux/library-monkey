@@ -1,0 +1,1101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"><head>
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+		<script src="odyssee-mediatheque_fichiers/ga.js" async="" type="text/javascript"></script><script type="text/javascript" language="JavaScript">
+			var jahiaMainServletPath="/cms";
+			var jahiaContextPath ="";
+			var jahiaCoreWebdavPath ="/webdav";
+		</script>
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/styles.css">
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/languageSwitchingLinks.css">
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/portlet-spec-1.css">
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/portlets.css">
+		<title>L'Odyssée médiathèque</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="canonical" href="http://www.ville-lomme.fr/cms/odysseemediatheque">
+		
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/style.css" media="screen, print">
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/custom.css" media="screen, print">
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/jqtransform.css" media="screen, print">
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/jquery_003.css" media="screen, print">
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/jquery_004.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/print.css" media="print">
+		<link rel="icon" type="image/png" href="http://www.ville-lomme.fr/templates/VDL-Internet-Portal/theme/lomme/images/favicon.png">
+		<!--[if IE 9]>
+			<link rel="stylesheet" type="text/css" href="/templates/VDL-Internet-Portal/theme/lomme/css/v2/style_ie9.css" />
+			<![endif]-->
+		<!--[if IE 8]>
+			<link rel="stylesheet" type="text/css" href="/templates/VDL-Internet-Portal/theme/lomme/css/v2/style_ie8.css" />
+			<![endif]-->
+		<!--[if IE 7]>
+			<link rel="stylesheet" type="text/css" href="/templates/VDL-Internet-Portal/theme/lomme/css/v2/style_ie7.css" />
+			<![endif]-->
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/jquery_002.css" media="screen">
+		<link rel="stylesheet" href="odyssee-mediatheque_fichiers/validationEngine.css" type="text/css" media="screen">
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery-1.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/common.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_003.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/textsizer.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/addBookmarks.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_010.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_006.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_002.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/scripts.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_008.js" charset="utf-8"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_007.js" charset="utf-8"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/tellfriend.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_009.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_005.js"></script>
+		<script type="text/javascript">
+			<!--
+			jQuery(document).ready(function() {
+			jQuery('ul.jcarousel-skin-tango1').jcarousel();
+			//init header
+			jQuery("#siteVille").click(function() {
+			jQuery("#siteVilleMenu").slideToggle('slow');
+			return false;
+			});
+			jQuery("#siteVilleMenu").hide();
+			jQuery("#blogsVille").click(function() {
+			jQuery("#blogsVilleMenu").slideToggle('slow');
+			return false;
+			});
+			jQuery("#blogsVilleMenu").hide();
+			//init positionning
+			//$("#ombrePopin").css("display","block");
+			$("#espacePresse").hover(
+			function () {
+				$(this).children("div.loginContainer").css("display","block");
+			}, 
+			function () {
+				$(this).children("div.loginContainer").css("display","none");
+			}
+			);
+			
+			
+			});
+			    //-->
+		</script>
+		
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_004.js"></script>
+		<script type="text/javascript" src="odyssee-mediatheque_fichiers/jquery_011.js"></script>
+		<link rel="stylesheet" type="text/css" href="odyssee-mediatheque_fichiers/jquery.css" media="screen">
+		<script type="text/javascript">
+			jQuery(function($) {
+				$('.lightbox').lightBox();
+				$(".popup").colorbox({
+					width:"1024px",
+					height:"650px",
+					inline:true,
+					href:"#inline_popup"
+				});
+				$("#carousel").adGallery({
+					effect: "slide-hori"
+				});
+				$(".popup").colorbox({
+					width:"1024px",
+					inline:true,
+					href:"#inline_popup"
+				});
+				$("#carousel").adGallery({
+					openInBrowser:true
+				});
+				
+				/*
+				for (var i = 0; i < $(".list_menu #current").get().length; i++) {
+					//$('.content_center').css('paddingTop', $('.menu .list_menu li#current ul').height()+48 );
+					$('#content_center').css('paddingTop', $('.menu .list_menu li#current ul').height() + 22);
+					$('.list_menu #current ul')
+				}
+				*/
+				
+				var content = $("#content_center");
+				var current = $("#current ul")
+				var pos = content.offset();
+				pos.top += current.innerHeight();
+				content.offset(pos);
+				current.css('display','block');
+			});
+		</script>
+	</head>
+	<body><div style="display: none;" id="cboxOverlay"></div><div style="padding-bottom: 0px; padding-right: 0px; display: none;" class="" id="colorbox"><div id="cboxWrapper"><div><div style="float: left;" id="cboxTopLeft"></div><div style="float: left;" id="cboxTopCenter"></div><div style="float: left;" id="cboxTopRight"></div></div><div style="clear:left"><div style="float: left;" id="cboxMiddleLeft"></div><div style="float: left;" id="cboxContent"><div class="" id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden;"></div><div class="" id="cboxLoadingOverlay"></div><div class="" id="cboxLoadingGraphic"></div><div class="" id="cboxTitle"></div><div class="" id="cboxCurrent"></div><div class="" id="cboxNext"></div><div class="" id="cboxPrevious"></div><div class="" id="cboxSlideshow"></div><div class="" id="cboxClose"></div></div><div style="float: left;" id="cboxMiddleRight"></div></div><div style="clear:left"><div style="float: left;" id="cboxBottomLeft"></div><div style="float: left;" id="cboxBottomCenter"></div><div style="float: left;" id="cboxBottomRight"></div></div></div><div style="position:absolute; width:9999px; visibility:hidden; display:none"></div></div>
+		<div id="actualContent">
+			<!--[if lte IE 9]>
+				<div class="ie-9-only" style="display: none;"></div>
+				<![endif]-->
+			<div class="wrapper" id="param.idHtmlPage">
+				<div id="ombrePopin">
+					<!-- dnr -->
+				</div>
+				<div class="page rubrique interne">
+					<!-- debut preheader -->
+					<div class="preheader">
+						<div class="content_preheader">
+							<!-- debut logo -->
+							
+							<!-- fin logo -->
+							<!-- select -->
+							<form action="" method="post" class="form">
+								<fieldset>
+									<div class="rowElem">
+										<label for="nosSites">Sites de la ville</label>
+										<select id="nosSites" name="nosSites" title="Accéder aux sites de la Ville">
+											<option selected="selected" value="#">Sites de la ville</option>
+											
+										</select>
+										<input class="bt" value="Ok" onclick="javascript:if($('#nosSites option:selected').val()!='#'){window.open($('#nosSites option:selected').val(),'_blank')};" type="button">
+									</div>
+									<div class="rowElem">
+										<label for="nosBlogs">Blogs de la ville</label>
+										<select id="nosBlogs" name="nosBlogs" title="Accéder aux blogs de la ville">
+											<option selected="selected" value="#">Blogs de la ville</option>
+											
+										</select>
+										<input class="bt" value="Ok" onclick="javascript:if($('#nosBlogs option:selected').val()!='#'){window.open($('#nosBlogs option:selected').val(),'_blank')};" type="button">
+									</div>
+								</fieldset>
+							</form>
+							<!-- fin select -->
+							<!-- social network -->
+							<ul class="link_lille">
+								<li>
+									
+								</li>
+								<li>
+									
+								</li>
+							</ul>
+							<!-- fin social network -->
+							<div class="breaker">
+								<!-- dnr -->
+							</div>
+						</div>
+					</div>
+					<div class="header" style="background-image:url('/files/content/sites/lomme/files/gfx/tetieres/headerhome2.jpg');">
+						<div class="content_header">
+							<div class="list_drap">
+								
+								
+							</div>
+							<div class="breaker">
+								<!-- dnr -->
+							</div>
+							<div class="bg_research">
+								<div class="inside">
+									<form name="simpleSearchForm" action="/cms/odysseemediatheque" class="form_search" method="get">
+										<input name="src_mode" value="pages" type="hidden">
+										<input name="template" value="/templates/VDL-Internet-Portal/tpl.searchresult.jsp" type="hidden">
+										<fieldset>
+											<input name="src_terms[0].term" onblur="this.value=this.value==''?'Recherche':this.value;" class="text" onfocus="if(this.value=='Recherche')this.value='';" value="Recherche" type="text">
+											<input class="bt" value="Ok" type="submit">
+											<input name="src_type_content" value="false" type="hidden">
+											<input name="src_type_news" value="false" type="hidden">
+											<input name="src_type_files" value="false" type="hidden">
+											<input name="src_type_events" value="false" type="hidden">
+											<input name="src_type_all" value="true" type="hidden">
+											<span><a title="Recherche avancée" href="http://www.ville-lomme.fr/cms/odysseemediatheque?src_mode=pages&amp;template=tpl.searchresult.jsp">Recherche avancée</a></span>
+										</fieldset>
+									</form>
+									
+									<div class="compte" id="espacePresse">
+									</div>
+									<div class="breaker">
+										<!-- dnr -->
+									</div>
+								</div>
+							</div>
+							<div class="breaker">
+								<!-- dnr -->
+							</div>
+							<a class="hidden" id="ctn14859_24630" name="ctn14859_24630"></a><a title="logo" href="http://www.ville-lomme.fr/cms/home" class="logo_lille">
+				<img alt="logo_lille" src="odyssee-mediatheque_fichiers/logo_lille.png">
+			</a>
+							<ul class="typ_lille">
+								
+							</ul>
+						</div>
+						<div class="breaker">
+							<!-- dnr -->
+						</div>
+					</div>
+					<div class="menu">
+						<ul id="rubriques" class="list_menu list_menu_6">
+							<li class="editmode cat rose">
+								<a href="http://www.ville-lomme.fr/cms/home/mairie"><span>Mairie</span></a>
+								<div class="sub_menu">
+									<div class="content_sub_menu">
+										<div class="bloc_ss_menu">
+											<ul>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/mairie/bienvenuealomme">Bienvenue à Lomme</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/mairie/servicesmunicipaux1">Services municipaux</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/mairie/conseilcommunal">Conseil communal</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/mairie/comitesdequartier">Comités de Quartier</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/mairie/elections">Elections</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/mairie/budget">Budget</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/mairie/marchespublics">Marchés publics</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="editmode cat vert">
+								<a href="http://www.ville-lomme.fr/cms/home/cadredevie"><span>Cadre de vie</span></a>
+								<div class="sub_menu">
+									<div class="content_sub_menu">
+										<div class="bloc_ss_menu">
+											<ul>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/planscommunautaires">Plans communautaires</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/espaceverts">Espaces verts</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/equipements">Equipements</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/initiativescitoyennes">Initiatives citoyennes</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/urbanisme">Urbanisme</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/developpementdurable">Développement durable</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/gestiondesdechets">Gestion des déchets</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/securitepublique">Sécurité Publique</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/equipements/maisonducitoyen">Maison du Citoyen</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/risques-naturels-technologiques">Risques naturels et technologiques</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/toutalegout_1">Tout à l'égout</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/tlpe">Taxe Locale sur la Publicité Extérieure</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="editmode cat bleu">
+								<a href="http://www.ville-lomme.fr/cms/home/economie"><span>Economie</span></a>
+								<div class="sub_menu">
+									<div class="content_sub_menu">
+										<div class="bloc_ss_menu">
+											<ul>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/economie/eurometropolis">Eurométropolis</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/economie/entrepriseslommoises">Listes des Entreprises Lommoises</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/economie/rendezvousducommerce">Rendez-vous du commerce</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/economie/concours-vitrines-noel">Concours de vitrines</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/economie/chiffres-entreprises-commercants-artisans">Chiffres entreprises / commerçants / artisans</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="editmode cat mauve">
+								<a href="http://www.ville-lomme.fr/cms/home/solidarite"><span>Solidarité</span></a>
+								<div class="sub_menu">
+									<div class="content_sub_menu">
+										<div class="bloc_ss_menu">
+											<ul>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/seniors">Seniors</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/jeunes">Jeunes</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/habitat-logement">Habitat Logement</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/polesolidarite">Pôle Solidarité</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/aides-accompagnement">Aides et accompagnement</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/insertionetemploi">Insertion et emploi</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/pointaccueilhandicap">Point Accueil Handicap</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/santesocial">Santé - Social</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/solidarite/service-civique">Service civique</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="editmode cat vert_f">
+								<a href="http://www.ville-lomme.fr/cms/home/enfanceeducation"><span>Enfance Education</span></a>
+								<div class="sub_menu">
+									<div class="content_sub_menu">
+										<div class="bloc_ss_menu">
+											<ul>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/petiteenfanceenfance">Petite enfance / Enfance</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/viescolaireetperiscolaire">Ecolier / Vie scolaire et périscolaire</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/collegien-lyceen-jeunessse">Collégien-Lycéen / Jeunesse</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/loisirs">Loisirs</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/restaurationscolaire">Restauration scolaire</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/rentree2014">Nouveaux rythmes scolaires </a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/page47017.html">Collèges et Lycées</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="editmode cat orange">
+								<a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine"><span>Culture Loisirs</span></a>
+								<div class="sub_menu">
+									<div class="content_sub_menu">
+										<div class="bloc_ss_menu">
+											<ul>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/Agenda">Actu / Agenda</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/maisonfoliebeaulieu">maison Folie Beaulieu</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/odysseemediatheque">L'Odyssée médiathèque</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/cyber-espaces">Cyber-espaces</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/associations">Associations</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/piscine">Piscine</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/fermeeducative">Ferme éducative</a></li>
+												<li class="subLink elem01"><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/ecolesformationartistique">Ecoles de formation artistique</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="breaker">
+							<!-- dnr -->
+						</div>
+					</div>
+					<div class="breaker">
+						<!-- dnr -->
+					</div>
+					<div class="header_print">
+						<img alt="header to print" src="odyssee-mediatheque_fichiers/header-to-print.jpg">
+					</div>
+					<div style="position: relative; top: 0px; left: 0px;" class="content_page orange" id="content_center">
+						<!-- debut messages de crise -->
+						<script type="text/javascript"> 
+							$(document).ready(function (){ 
+							//$('.infoMarquee').marquee(); 
+							$('.infoMarquee').liScroll();
+							}); 
+						</script>
+						<div id="miniInfoCacheeMenu">
+							
+						</div>
+						<div class="content_center">
+							<div class="center">
+								<!-- debut bloc haut -->
+								<div class="block_up">
+									<div class="content_block_up">
+										<div class="sharing">
+											<ul>
+												<li>
+													<a onclick="window.print()" title="" href="#">Imprimer</a>
+												</li>
+												<li>
+													<div class="partage">
+														<a href="#medium_box" id="medium_box_link">Partager</a>
+														<ul>
+															<li class="Share_facebook">
+																<a href="http://www.facebook.com/sharer.php?u=http://www.ville-lomme.fr/cms/odysseemediatheque" title="partager sur facebook" target="_blank">Partager sur Facebook</a>
+															</li>
+															<li class="Share_twittre">
+																<a href="https://twitter.com/share" title="partager sur twitter" target="_blank">Partager sur Twitter</a>
+															</li>
+														</ul>
+													</div>
+												</li>
+												<li class="last">
+													<a title="" target="_blank" href="http://www.ville-lomme.fr/exportPDF?url=http%3A%2F%2Fwww.ville-lomme.fr%3A80%2Fcms%2Fodysseemediatheque&amp;css=http%3A%2F%2Fwww.ville-lomme.fr%3A80%2Ftemplates%2FVDL-Internet-Portal%2Ftheme%2Flomme%2Fcss%2FexportPDF.css&amp;filename=L%27Odyss%C3%A9e+m%C3%A9diath%C3%A8que">Télécharger en PDF</a>
+												</li>
+											</ul>
+											<!-- fin partage -->
+											<div class="speaker">
+												<div>
+													<object type="application/x-shockwave-flash" data="odyssee-mediatheque_fichiers/dewplayer.swf" height="20" width="200">
+														<param name="movie" value="http://www.ville-lomme.fr/common/dewplayer.swf?son=http%3A%2F%2Fapp.eu.readspeaker.com%2Fcgi-bin%2Frsent%3Fcustomerid%3D4545%26lang%3Dfr_fr%26url%3Dhttp%3A%2F%2Fwww.ville-lomme.fr%3A80%2Fcms%2Fodysseemediatheque">
+														<param name="wmode" value="transparent">
+													</object>
+												</div>
+												<a class="space" href="javascript:ts('body',1)" title="">Aa +</a>
+												<a href="javascript:ts('body',-1)" title="">Aa -</a>
+											</div>
+										</div>
+										<!-- debut fil_ariane -->
+										<div class="breadcrumb">
+											<span>Vous êtes ici :</span>
+											<ul class="">
+												<li class="first"><a href="http://www.ville-lomme.fr/cms/home">Bienvenue sur www.ville-lomme.fr</a></li>
+												<li><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine">Culture Loisirs</a></li>
+												<li class="last">L'Odyssée médiathèque</li>
+											</ul>
+										</div>
+										<!-- fin fil_ariane -->
+										<div class="breaker">
+											<!-- dnr -->
+										</div>
+									</div>
+								</div>
+								<!-- fin block haut -->
+								<div class="wrapperCenter">
+									<img class="visuel_squelette" alt="squelette" src="odyssee-mediatheque_fichiers/squelette.png">
+									<img class="visuel_oiseau" alt="oiseau" src="odyssee-mediatheque_fichiers/oiseaux.png">
+									<div class="block_right">
+										<a class="hidden" id="ctn15003_24534" name="ctn15003_24534"></a>
+<a class="hidden" id="ctn14986_24535" name="ctn14986_24535"></a><div class="contact_service">
+			<div class="top-left-bg-blanc-b">
+				<div class="top-right-bg-blanc-b">
+					<div class="bottom-right-bg-blanc-b">
+						<div class="bottom-left-bg-blanc-b">
+							<div class="top-left-bg-gris">
+								<div class="top-right-bg-gris">
+									<div class="bottom-right-bg-gris">
+										<div class="bottom-left-bg-gris">
+											<h4>					
+												Infos pratiques</h4>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<!--  <div class="inclusive">-->
+								<p>  <strong>L’Odyssée Médiathèque de Lomme</strong>  <br>  794 Av. de Dunkerque<br>  59461 Lomme<br>  Métro Ligne 2 - Maison des Enfants<br>  <strong>Tél.</strong> 03 20 17 27 40<br>  <a href="mailto:contact@mediathequedelomme.com">contact@mediathequedelomme.com</a> </p>
+<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<a class="hidden" id="ctn14986_26220" name="ctn14986_26220"></a><div class="contact_service">
+			<div class="top-left-bg-blanc-b">
+				<div class="top-right-bg-blanc-b">
+					<div class="bottom-right-bg-blanc-b">
+						<div class="bottom-left-bg-blanc-b">
+							<div class="top-left-bg-gris">
+								<div class="top-right-bg-gris">
+									<div class="bottom-right-bg-gris">
+										<div class="bottom-left-bg-gris">
+											<h4>					
+												Catalogue</h4>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<!--  <div class="inclusive">-->
+								<p>&nbsp; <a href="http://195.132.121.21/">
+	<img alt="" src="odyssee-mediatheque_fichiers/catalogue.jpg" style="" height="53" width="160">
+	</a>
+</p>
+<ul>
+										<a class="hidden" id="ctn14985_87218" name="ctn14985_87218"></a><li>
+												<a href="http://195.132.121.21/" target="_blank" title="Catalogue médiathèque">Catalogue médiathèque</a></li>
+</ul>
+									<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+										<a class="hidden" id="ctn15003_26154" name="ctn15003_26154"></a>
+										<a class="hidden" id="ctn15003_87219" name="ctn15003_87219"></a>
+<a class="hidden" id="ctn14986_87220" name="ctn14986_87220"></a><div class="contact_service">
+			<div class="top-left-bg-blanc-b">
+				<div class="top-right-bg-blanc-b">
+					<div class="bottom-right-bg-blanc-b">
+						<div class="bottom-left-bg-blanc-b">
+							<div class="top-left-bg-gris">
+								<div class="top-right-bg-gris">
+									<div class="bottom-right-bg-gris">
+										<div class="bottom-left-bg-gris">
+											<h4>					
+												Horaires d'ouverture</h4>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<!--  <div class="inclusive">-->
+								<div style="text-align: start;">
+	<strong>
+	<span style="color: windowtext; text-align: justify;">Mardi&nbsp;:&nbsp;</span>
+	</strong> <span style="color: windowtext; text-align: justify;">14h-18h</span>
+	<br>
+	<strong>
+	<span style="color:windowtext">Mercredi&nbsp;:&nbsp;</span>
+	</strong> <span style="color:windowtext">10h-18h<br>
+	</span> <strong>
+	<span style="color:windowtext">Jeudi&nbsp;:</span>
+	</strong> <span style="color:windowtext">14h-18h<br>
+	</span> <strong>
+	<span style="color:windowtext">Vendredi&nbsp;:&nbsp;</span>
+	</strong> <span style="color:windowtext">14h-18h<br>
+	</span> <strong>
+	<span style="color:windowtext">Samedi&nbsp;:&nbsp;</span>
+	</strong> <span style="color:windowtext">10h-18h<br>
+	</span> <strong>
+	<span style="color:windowtext">Dimanche&nbsp;:&nbsp;</span>
+	</strong> <span style="color:windowtext">10h-13h</span>
+</div>
+<div style="text-align:justify">
+	<span style="color:windowtext">Fermé le lundi et les jours fériés</span>
+</div>
+<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+										<a class="hidden" id="ctn15003_111965" name="ctn15003_111965"></a>
+										<a class="hidden" id="ctn15003_87223" name="ctn15003_87223"></a>
+<a class="hidden" id="ctn14986_87224" name="ctn14986_87224"></a><div class="contact_service">
+			<div class="top-left-bg-blanc-b">
+				<div class="top-right-bg-blanc-b">
+					<div class="bottom-right-bg-blanc-b">
+						<div class="bottom-left-bg-blanc-b">
+							<div class="top-left-bg-gris">
+								<div class="top-right-bg-gris">
+									<div class="bottom-right-bg-gris">
+										<div class="bottom-left-bg-gris">
+											<h4>					
+												Tarifs</h4>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<!--  <div class="inclusive">-->
+								<p>
+	<strong>LOMMOIS, LILLOIS&nbsp;et HELLEMMOIS&nbsp; :</strong>
+	<br>
+	&gt;&nbsp;Consultation gratuite<br>
+	&gt;&nbsp;Emprunt gratuit
+</p>
+<p>&nbsp;</p>
+<p>
+	<strong>AUTRES&nbsp;COMMUNES</strong>
+	<br>
+	&gt;&nbsp;consultation gratuite<br>
+	&gt;&nbsp;emprunt : plus de 18 ans : <strong>94 €</strong>
+	<br>
+	&gt; emprunt : moins de 18 ans : <strong>47 €</strong>
+</p>
+<p>&nbsp;</p>
+<p>
+	<strong>HABITANTS&nbsp;DE&nbsp;CAPINGHEM</strong>
+	<br>
+	Les jeunes âgés de moins de 18 ans bénéficient d’un tarif réduit sur 
+présentation d’un justificatif délivré par la mairie de Capinghem <strong>: 28 €</strong>
+</p>
+<p>NB : abonnement à renouveler tous les ans à la date anniversaire</p>
+<p>
+	<a href="http://www.ville-lomme.fr/files/content/sites/lomme/files/culture-loisirs-patrimoine/odyssee/2013%20Conditions%20d%27emprunt.pdf">Conditions d'emprunt</a>
+</p>
+<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+										<a class="hidden" id="ctn15003_87574" name="ctn15003_87574"></a>
+<a class="hidden" id="ctn14986_87575" name="ctn14986_87575"></a><div class="contact_service">
+			<div class="top-left-bg-blanc-b">
+				<div class="top-right-bg-blanc-b">
+					<div class="bottom-right-bg-blanc-b">
+						<div class="bottom-left-bg-blanc-b">
+							<div class="top-left-bg-gris">
+								<div class="top-right-bg-gris">
+									<div class="bottom-right-bg-gris">
+										<div class="bottom-left-bg-gris">
+											<h4>					
+												Programme</h4>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<!--  <div class="inclusive">-->
+								<p>
+	<a href="http://www.ville-lomme.fr/files/content/sites/lomme/files/blocPDF/2015/04-avril/Odyss%C3%A9e%20Programme%20-%2004%202015%20bd.pdf">
+	<img alt="Téléchargez le programme de l'Odyssée médiathèque" src="odyssee-mediatheque_fichiers/odyssee2014.png" height="200" width="200">
+	</a>
+</p>
+<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+										<a class="hidden" id="ctn15003_129843" name="ctn15003_129843"></a>
+<a class="hidden" id="ctn14986_129852" name="ctn14986_129852"></a><div class="contact_service">
+			<div class="top-left-bg-blanc-b">
+				<div class="top-right-bg-blanc-b">
+					<div class="bottom-right-bg-blanc-b">
+						<div class="bottom-left-bg-blanc-b">
+							<div class="top-left-bg-gris">
+								<div class="top-right-bg-gris">
+									<div class="bottom-right-bg-gris">
+										<div class="bottom-left-bg-gris">
+											<h4>					
+												Facebook</h4>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<!--  <div class="inclusive">-->
+								<p>Retrouvez-nous sur Facebook !</p>
+<p>
+	<a href="https://www.facebook.com/odysseemediatheque?ref=hl" target="_blank">
+	<img alt="" src="odyssee-mediatheque_fichiers/logofacebook.jpg" height="89" width="200">
+	</a>
+</p>
+<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+										<a class="hidden" id="ctn15003_131062" name="ctn15003_131062"></a>
+<a class="hidden" id="ctn14986_131063" name="ctn14986_131063"></a><div class="contact_service">
+			<div class="top-left-bg-blanc-b">
+				<div class="top-right-bg-blanc-b">
+					<div class="bottom-right-bg-blanc-b">
+						<div class="bottom-left-bg-blanc-b">
+							<div class="top-left-bg-gris">
+								<div class="top-right-bg-gris">
+									<div class="bottom-right-bg-gris">
+										<div class="bottom-left-bg-gris">
+											<h4>					
+												ToutApprendre.com</h4>
+										</div>
+									</div>
+								</div>
+							</div>	
+							<!--  <div class="inclusive">-->
+								<p>
+	<img alt="" src="odyssee-mediatheque_fichiers/mediatheque-toutapprendre.jpg" height="146" width="200">
+</p>
+<p>
+	<strong>Dès cet été, l’Odyssée vous propose de vous inscrire à son premier service en ligne : "Tout&nbsp; Apprendre.com"</strong>
+	<br>
+	<br>
+	Une plateforme d'autoformation pour vous initier aux langues, à la 
+bureautique, au multimédia, à la musique, au code de la route.<br>
+	<br>
+	Pour s’y inscrire, c’est simple, il suffit de vous rendre à la 
+médiathèque avec votre carte, et vos bibliothécaires se feront un 
+plaisir de vous renseigner.
+</p>
+<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+										<div class="breaker">
+											<!-- dnr -->
+										</div>
+									</div>
+									<div class="block_left">
+										<div class="title box_dynamique">
+											<span class="xtop">
+											<span class="xb1">&nbsp;</span>
+											<span class="xb2">&nbsp;</span>
+											<span class="xb3">&nbsp;</span>
+											<span class="xb4">&nbsp;</span>
+											</span>
+											<div class="xboxcontent">
+												<h1>L'Odyssée médiathèque</h1>
+											</div>
+											<span class="xbottom">
+											<span class="xb4">&nbsp;</span>
+											<span class="xb3">&nbsp;</span>
+											<span class="xb2">&nbsp;</span>
+											<span class="xb1">&nbsp;</span>
+											</span>
+										</div>
+										<!-- Ca descend pas d'une Lille politique : on commence au niveau 3, affichage à partir de level=3 -->
+										<!-- RSPEAK_START -->
+										<div class="">
+											<div class="top-left-bg-blanc">
+												<div class="top-right-bg-blanc">
+													<div class="bottom-right-bg-blanc">
+														<div class="bottom-left-bg-blanc">
+															<div class="article rte">
+																<a class="hidden" id="ctn15005_24530" name="ctn15005_24530"></a><h2>L’Odyssée Médiathèque de Lomme</h2>
+		<div class="text_visuel_area_left">
+			<div class="visuel_area_left imageGallery">
+				</div>
+		</div>
+		<p style="text-align: justify;">
+	<img alt="" src="odyssee-mediatheque_fichiers/mediatheque.jpg" style="vertical-align: middle;" height="271" width="500">
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>L’Odyssée médiathèque accueille tous ceux qui souhaitent s’informer, se former, découvrir et partager.</strong>
+</p>
+<p style="text-align: justify;">
+	<br>
+	On peut y rechercher des informations sur Internet, choisir livres, CD 
+ou DVD à emprunter, lire sur place une revue, assister à une projection 
+de film, rencontrer des écrivains et des artistes. Ouverte à toutes les 
+générations, la médiathèque a pour objectif de créer et renforcer les 
+habitudes de lecture dès le plus jeune âge.
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p><div class="breaker"><!-- dnr --></div>
+		
+<a class="hidden" id="ctn15004_24531" name="ctn15004_24531"></a><h3 class="para-title">Les secteurs</h3>
+				<div class="text_visuel_area_left">
+					<div class="visuel_area_left">
+						</div>
+					<p style="text-align: justify;">
+	<span style="color: rgb(255, 102, 0);">
+	<strong>REZ -DE-CHAUSSEE</strong>
+	</span>
+</p>
+<p style="text-align: justify;">
+	<br>
+	<strong>Banque d’accueil et Bureau d’inscription</strong>
+	<br>
+	- Vous renseigner, vous inscrire, vous orienter, gérer vos transactions…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Secteur tout-petits</strong>
+	<br>
+	- Albums, Musique, Presse, Cinéma, Coin change pour bébé…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Secteur jeunesse</strong>
+	<br>
+	- Romans, Livres d’images, Contes, Documentaires, Cinéma &amp; textes 
+lus, Musique, Poésie, Activités manuelles, Livres bilingues, Livres 
+animés…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Secteur littérature</strong>
+	<br>
+	- Romans, Livres en grands caractères, Poésie, Écrivains, Textes lus, BD, Prix du Marais…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Actualité</strong>
+	<br>
+	- Presse et médias…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Fonds régional</strong>
+	<br>
+	- Documentaires, Histoire, Histoire de Lomme, Géographie, Littérature, Musique &amp; cinéma…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Cyberbase</strong>
+	<br>
+	- Wifi
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Salle de Spectacle</strong>
+	<br>
+	- 80 places assises
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Distributeur de boissons chaudes</strong>
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Bureau des suggestions</strong>
+</p>
+<p style="text-align: justify;">
+	<br>
+	&nbsp;
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<span style="color: rgb(255, 102, 0);">
+	<strong>1ER&nbsp;ETAGE</strong>
+	</span>
+</p>
+<p style="text-align: justify;">
+	<br>
+	<strong>Secteur sciences &amp; civilisations</strong>
+	<br>
+	- Philosophie &amp; psychologie, Religions, Sciences sociales, 
+Sciences, Techniques, Arts &amp; loisirs, Histoire, Géographie, Récits 
+de voyages…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Vie citoyenne</strong>
+	<br>
+	- Droits et vie pratique, Informatique, formation concours, Langues, 
+Langage des signes, presse étrangère, Orientation et Emploi…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Secteur musique &amp; arts du spectacle</strong>
+	<br>
+	- Musique, Cirque, Danse, Théâtre, Cinéma, Images, Presse spécialisée, Galerie photo, Scène ouverte…
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Salle de travail</strong>
+	<br>
+	- connexion Internet
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p></div>	
+				<div class="breaker"><!-- dnr --></div>
+<a class="hidden" id="ctn15004_24532" name="ctn15004_24532"></a><h3 class="para-title">Quelques chiffres</h3>
+				<div class="text_visuel_area_left">
+					<div class="visuel_area_left">
+						</div>
+					<p>2400 m2<br>
+	67 639 livres<br>
+	18 330 documents audiovisuels
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div>	
+				<div class="breaker"><!-- dnr --></div>
+<a class="hidden" id="ctn15004_24533" name="ctn15004_24533"></a><h3 class="para-title">Inscription et conditions</h3>
+				<div class="text_visuel_area_left">
+					<div class="visuel_area_left">
+						</div>
+					<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Pièces justificatives<br>
+	</strong> &gt;&nbsp;Formulaire d'inscription par lequel vous vous engagez à respecter le règlement<br>
+	&gt;&nbsp;Pièce d'identité (carte d'identité, passeport, permis de conduire, carte de séjour)<br>
+	&gt;&nbsp;Justificatif de domicile datant de moins de trois mois<br>
+	&gt;&nbsp;Autorisation parentale pour les moins de 18 ans
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Conditions d'emprunt</strong>
+	<br>
+	La carte permet d’emprunter 10 documents pour une durée de 3 semaines quel que soit le support (livre, revue, DVD, CD)
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Consignes à l’emprunteur<br>
+	</strong> &gt;&nbsp;Votre carte doit être en cours de validité (un an à partir de la date anniversaire de l'inscription).<br>
+	&gt;&nbsp;Manipulez avec soin les documents sous votre responsabilité et rendez-les en bon état.<br>
+	&gt;&nbsp;Rembobinez avant retour les cassettes audio et vidéo.<br>
+	&gt; En cas de litige, il vous sera demandé de reprendre le document chez vous ou de le remplacer.<br>
+	&gt;&nbsp;Anticipez votre retard et faites prolonger vos emprunts lors 
+de vos passages à la médiathèque ou directement sur Internet (<a href="http://195.132.121.21/ipac20/ipac.jsp?menu=account" target="_blank">accès à votre compte</a>). Une seule prolongation est accordée. <strong>
+	<br>
+	</strong>
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>Des documents à conserver un peu plus longtemps</strong>
+	<br>
+	Pendant les vacances, vous pouvez conserver vos documents pendant 4 
+semaines au lieu de 3 habituellement. N'hésitez pas à demander aux 
+bibliothécaires de prolonger vos emprunts si vous partez longtemps. 
+Bonnes vacances !
+</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">
+	<strong>FICHE&nbsp;D'INSCRIPTION</strong>
+	<br>
+	<strong>
+	<em>Vous pouvez imprimer et compléter la fiche d'inscription en cliquant sur le lien ci-dessous :</em>
+	</strong>
+</p><a class="link_diff_article" href="http://www.ville-lomme.fr/files/content/sites/lomme/files/culture-loisirs-patrimoine/odyssee/Fiche-inscription-Odyssee-2013.pdf" target="_blank">Télécharger le document</a>
+					</div>	
+				<div class="breaker"><!-- dnr --></div>
+																<div class="breaker">
+																	<!-- dnr -->
+																</div>
+																<div class="breaker">
+																	<!-- dnr -->
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="breaker">
+											<!-- dnr -->
+										</div>
+										<!-- RSPEAK_STOP -->
+									</div>
+									<div class="breaker">
+										<!-- dnr -->
+									</div>
+								</div>
+								<div class="breaker">
+									<!-- dnr -->
+								</div>
+								<div id="footer">
+									<!-- debut footer -->
+									<div class="footer">
+										<div class="top-left-bg-blanc">
+											<div class="top-right-bg-blanc">
+												<div class="bottom-right-bg-blanc">
+													<div class="bottom-left-bg-blanc">
+														<div class="top-left-bg-gris_f">
+															<div class="top-right-bg-gris_f">
+																<a class="hidden" id="ctn14880_23928" name="ctn14880_23928"></a><p>  <span style="color: rgb(255, 102, 0); ">Hôtel de Ville de Lomme : 72 Av. de la République BP 159 - 59461 Lomme Cedex Tel : 03 20 22 76 22</span> </p>
+															</div>
+														</div>
+														<div class="menu_footer">
+															<ul>
+																<li><a href="http://www.ville-lomme.fr/cms/home/contact" title="Contact">Contact</a></li>
+																<li><a href="http://www.ville-lomme.fr/cms/home/mentionslegales" title="Mentions légales">Mentions légales</a></li>
+																<li class="last"><a href="http://www.ville-lomme.fr/cms/home/plandusite" title="Plan du site">Plan du site</a></li>
+															</ul>
+														</div>
+														<div class="list_link_footer">
+															<div>
+																<span><a href="http://www.ville-lomme.fr/cms/home/mairie">Mairie</a></span>
+																<ul>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/mairie/bienvenuealomme">Bienvenue à Lomme</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/mairie/servicesmunicipaux1">Services municipaux</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/mairie/conseilcommunal">Conseil communal</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/mairie/comitesdequartier">Comités de Quartier</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/mairie/elections">Elections</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/mairie/budget">Budget</a></li>
+																	<li class="last"><a href="http://www.ville-lomme.fr/cms/home/mairie/marchespublics">Marchés publics</a></li>
+																</ul>
+															</div>
+															<div>
+																<span><a href="http://www.ville-lomme.fr/cms/home/cadredevie">Cadre de vie</a></span>
+																<ul>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/planscommunautaires">Plans communautaires</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/espaceverts">Espaces verts</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/equipements">Equipements</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/initiativescitoyennes">Initiatives citoyennes</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/urbanisme">Urbanisme</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/developpementdurable">Développement durable</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/gestiondesdechets">Gestion des déchets</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/securitepublique">Sécurité Publique</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/equipements/maisonducitoyen">Maison du Citoyen</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/risques-naturels-technologiques">Risques naturels et technologiques</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cadredevie/toutalegout_1">Tout à l'égout</a></li>
+																	<li class="last"><a href="http://www.ville-lomme.fr/cms/home/cadredevie/tlpe">Taxe Locale sur la Publicité Extérieure</a></li>
+																</ul>
+															</div>
+															<div>
+																<span><a href="http://www.ville-lomme.fr/cms/home/economie">Economie</a></span>
+																<ul>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/economie/eurometropolis">Eurométropolis</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/economie/entrepriseslommoises">Listes des Entreprises Lommoises</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/economie/rendezvousducommerce">Rendez-vous du commerce</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/economie/concours-vitrines-noel">Concours de vitrines</a></li>
+																	<li class="last"><a href="http://www.ville-lomme.fr/cms/home/economie/chiffres-entreprises-commercants-artisans">Chiffres entreprises / commerçants / artisans</a></li>
+																</ul>
+															</div>
+															<div>
+																<span><a href="http://www.ville-lomme.fr/cms/home/solidarite">Solidarité</a></span>
+																<ul>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/solidarite/seniors">Seniors</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/solidarite/jeunes">Jeunes</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/solidarite/habitat-logement">Habitat Logement</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/solidarite/polesolidarite">Pôle Solidarité</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/solidarite/aides-accompagnement">Aides et accompagnement</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/solidarite/insertionetemploi">Insertion et emploi</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/solidarite/pointaccueilhandicap">Point Accueil Handicap</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/solidarite/santesocial">Santé - Social</a></li>
+																	<li class="last"><a href="http://www.ville-lomme.fr/cms/home/solidarite/service-civique">Service civique</a></li>
+																</ul>
+															</div>
+															<div>
+																<span><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation">Enfance Education</a></span>
+																<ul>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/petiteenfanceenfance">Petite enfance / Enfance</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/viescolaireetperiscolaire">Ecolier / Vie scolaire et périscolaire</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/collegien-lyceen-jeunessse">Collégien-Lycéen / Jeunesse</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/loisirs">Loisirs</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/enfanceeducation/restaurationscolaire">Restauration scolaire</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/rentree2014">Nouveaux rythmes scolaires </a></li>
+																	<li class="last"><a href="http://www.ville-lomme.fr/cms/page47017.html">Collèges et Lycées</a></li>
+																</ul>
+															</div>
+															<div class="last">
+																<span><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine">Culture Loisirs</a></span>
+																<ul>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/Agenda">Actu / Agenda</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/maisonfoliebeaulieu">maison Folie Beaulieu</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/odysseemediatheque">L'Odyssée médiathèque</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/cyber-espaces">Cyber-espaces</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/associations">Associations</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/piscine">Piscine</a></li>
+																	<li><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/fermeeducative">Ferme éducative</a></li>
+																	<li class="last"><a href="http://www.ville-lomme.fr/cms/home/cultureloisirspatrimoine/ecolesformationartistique">Ecoles de formation artistique</a></li>
+																</ul>
+															</div>
+														</div>
+														<div class="list_link_footer list_link_footer_administrable">
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- fin footer -->
+									<div class="clear">
+										<!--  -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="breaker">
+							<!-- dnr -->
+						</div>
+					</div>
+					<div class="breaker">
+						<!-- dnr -->
+					</div>
+				</div>
+				<div class="breaker">
+					<!-- dnr -->
+				</div>
+			</div>
+			<!-- tag Google Analytics -->
+			<a class="hidden" id="ctn17470_107573" name="ctn17470_107573"></a><script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-22986516-1']);
+                _gaq.push(['_trackPageview']);
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+            </script>
+		</div>
+		<script type="text/javascript">
+			var jahia_gwt_messages = {
+			"advp_username":"Prévisualisation pour l'utilisateur",
+			"standaloneShortMonths":"janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.",
+			"save":"Sauver",
+			"cancelText":"Annuler",
+			"versioning_languageCode":"Langue",
+			"nextText":"Mois suivant (CTRL+Flèche droite)",
+			"cancel":"Annuler",
+			"workInProgressTitle":"Travail en cours, veuillez patienter...",
+			"weekdays":"dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi",
+			"standaloneNarrowMonths":"J, F, M, A, M, J, J, A, S, O, N, D",
+			"versioning_versionLabel":"Version",
+			"advp_enable":"Appliquer les réglages avancés de prévisualisation",
+			"shortWeekdays":"dim., lun., mar., mer., jeu., ven., sam.",
+			"quarters":"1er trimestre, 2e trimestre, 3e trimestre, 4e trimestre",
+			"startDay":"1",
+			"eras":"av. J.-C., ap. J.-C.",
+			"versioning_workflowState":"Status du workflow",
+			"firstDayOfTheWeek":"2",
+			"standaloneMonths":"janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre",
+			"todayTip":"{0} (Barre d''espace",
+			"monthYearText":"Choisissez un mois (CTRL+Flèche haut ou bas pour changer d''année.)",
+			"timeFormats":"HH:mm:ss v, HH:mm:ss z, HH:mm:ss, HH:mm",
+			"advc_enable":"Appliquer les réglages avancés du mode comparaison",
+			"advp_dateofpreview":"Date de prévisualisation",
+			"narrowWeekdays":"D, L, M, M, J, V, S",
+			"maxText":"Cette date est postérieure à la date maximum",
+			"okText":"&#160;OK&#160;",
+			"standaloneShortWeekdays":"dim., lun., mar., mer., jeu., ven., sam.",
+			"shortQuarters":"T1, T2, T3, T4",
+			"weekendRange":"7, 1",
+			"disabledDaysText":"",
+			"minText":"Cette date est antérieure à la date minimum",
+			"shortMonths":"janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.",
+			"standaloneWeekdays":"dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi",
+			"versioning_versionDate":"Date de version",
+			"months":"janvier, fevrier, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre",
+			"disabledDatesText":"",
+			"todayText":"Aujourd'hui",
+			"eraNames":"avant Jésus-Christ, après Jésus-Christ",
+			"versioning_author":"Createur",
+			"standaloneNarrowWeekdays":"D, L, M, M, J, V, S",
+			"workInProgressProgressText":"Chargement en cours...",
+			"dateFormats":"EEEE d MMMM yyyy, d MMMM yyyy, d MMM yyyy, dd/MM/yy",
+			"narrowMonths":"J, F, M, A, M, J, J, A, S, O, N, D",
+			"prevText":"Mois précédent (CTRL+Flèche gauche)",
+			"advc_version1":"Version 1",
+			"advc_version2":"Version 2"
+			};
+		</script>
+	
+
+</body></html>

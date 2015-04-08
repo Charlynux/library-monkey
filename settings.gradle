@@ -1,2 +1,4 @@
 include 'library-common'
 
+include 'library-lomme'
+

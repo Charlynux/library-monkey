@@ -1,0 +1,190 @@
+/* CSS Document */
+
+/* General */
+.visuel_oiseau, .visuel_squelette {
+	display:none;
+}
+
+.header {
+	display:none;
+}
+.header_print {
+	display:block;
+}
+.header_print img{
+	width:100%;
+}
+/*.Post_crisis {
+	display:none;
+}*/
+/* Lille_home_master-menu-deplie.html */
+#home .block_right {
+    display:none;
+}
+#home .footer {
+	clear:both !important;
+}
+
+/* Lille-Maquette_Page_type_v4.html */
+#type-04 .block_left_left {
+	display:none;	
+}
+
+#type-04 .block_right {
+	display:none;
+}
+
+/* Lille-Maquette_Demarche_1.html */
+#demarche .block_left {
+	display:none;	
+}
+
+/* 07_Lille_liste_03.html */
+#liste .block_left {
+	display:none;	
+}
+
+/* Lille-Maquette_Rubrique_Page_v3.html */
+#rubrique .block_right {
+	display:none;
+}
+
+/* 06_Lille_Agenda_04.html */
+#agenda .block_left {
+	display:none;	
+}
+
+#agenda .form_list {
+	display:none;	
+}
+
+/* Lille-Maquette_recherche2.html */
+#recherche .block_search {
+	display:none;	
+}
+
+#recherche .block_right_3_col {
+	display:none;
+}
+
+/* Lille-Maquette_Profil_5.html */
+#profil .block_left {
+	/*display:none;*/
+}
+
+#profil .block_r_right {
+	/*display:none;*/
+}
+
+#profil .Do_nt_miss {
+	/*display:none;*/
+}
+
+#profil .events_pictures {
+	/*display:none;*/
+}
+#profil .colonne {
+	display:none;
+}
+#profil .colonne_right {
+	display:none;
+}
+#profil .receive_news_bis {
+	display:none;
+}
+/* 13_Lille_FAQ_01.html */
+#faq .block_left {
+	display:none;
+}
+#faq .Popular {
+	display:none;
+}
+#faq .block_right_3_col {
+	/*display:none;*/
+}
+#faq .block_FAQ .content {
+	display:block !important;
+}
+
+
+
+
+
+
+
+
+
+/**********************************nadia tache print*************/
+.page .block_left {
+    display:none;
+}
+.page.interne .block_left, #home .block_left {
+    display:block;
+}
+.page_inter_cas.mediatheque .block_left {
+	display:none;
+}
+.page_inter_cas.mediatheque .block_right {
+    width: 100%;
+}
+.list_media .ss_item {
+    width: 153px;
+	padding: 0 4px 20px 5px;
+}
+.block_left .block_left_left {
+    display:none;
+}
+.block_left .block_left_right {
+    width: 100%;
+}
+.media_page .block_left {
+    display:none;
+}
+.page_inter_cas .block_left {
+    display:none;
+}
+.page_inter_cas .block_right {
+    float: left;
+    width: 100%;
+}
+.contact #content_center .col_left {
+    width: 33% !important;
+}
+.contact .col_left .enter_information .field_area textarea {
+    width: 80% !important;
+}
+.contact #content_center .col_right {
+    width:33% !important;
+	float:left;
+}
+#footer {
+	display:none;
+}
+.interne .block_right {
+	visibility:hidden;
+}
+#home .block_right {
+	visibility:hidden;
+}
+.expo .block_left {
+    visibility:hidden;
+}
+.actualites .block_left {
+    visibility:hidden;
+}
+.page_inter_cas.mediatheque .block_left {
+    visibility:hidden;
+}
+
+
+
+
+
+.wrapperCenter {
+width: 800px !important;
+padding-right: 180px !important;
+}
+
+body{overflow: normal;}
+.wrapperCenter,.content_page, .interne .block_left, .block_left_right {width:100% !important; }
+.interne .block_right {display:none;}
