@@ -3,6 +3,7 @@
 
 .gradle
 build/
+target/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -11,3 +12,6 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 *~
+
+.lein-repl-history
+.nrepl-port
