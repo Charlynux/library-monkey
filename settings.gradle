@@ -1,4 +1,0 @@
-include 'library-common'
-include 'library-lomme'
-include 'library-watcher'
-
