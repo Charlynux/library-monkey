@@ -7,16 +7,17 @@
         (first)))
 
 
-(defn auth-cookie [name password]
+(defn auth-cookie [username password]
     (let [response
         @(http/post "http://bibliotheques.amiens.fr/CDA/pages/logon.aspx?INSTANCE=EXPLOITATION" 
             {
                 :form-params { 
-                    :name name
+                    :name username
                     :pwd password
                 }
                 :follow-redirects false
             })]
+            ;;; Success = 302...
             ((comp find-auth :set-cookie :headers) response)))
 
 (defn get-borrowings [cookie]
