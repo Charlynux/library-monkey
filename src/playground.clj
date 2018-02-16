@@ -22,7 +22,7 @@
 
 (defn get-borrowings [cookie]
     (let [response 
-        @(http/get "http://bibliotheques.amiens.fr/cda/default.aspx?INSTANCE=EXPLOITATION&PORTAL_ID=erm_portal_services.xml&PAGE=/clientBookline/recherche/dossier_lecteur.asp%3FINSTANCE%3DEXPLOITATION%26OUTPUT%3DCANVAS%26STRCODEDOCBASE%3DCAAM" 
+        @(http/get "http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&OUTPUT=CANVAS&STRCODEDOCBASE=CAAM" 
         {
             :headers {
                 "Accept" "application/json"
@@ -30,8 +30,7 @@
             }
             :follow-redirects false
         })] 
-        (println (:error response))
-        (println (:status response))))
+        (:body response)))
 
 ;;;;;;;;;;;
 ;;;; HTML PARSING
@@ -47,7 +46,7 @@
 
 (defn create-keyword [label]
     (->
-        (clojure.string/split label #":")
+        (clojure.string/split label #"\u00A0:\u00A0")
         (first)
         (clojure.string/replace #" " "-")
         (clojure.string/lower-case)
@@ -64,6 +63,22 @@
 (defn find-boxes [data]
     (s/select (s/class "dossierlecteur_box") data))
 
-(->> data-html
+; (->> data-html
+;     (s/select (s/class "dossierlecteur_linesep"))
+;     (map (comp first :content))
+;     (first)
+;     (#(clojure.string/split % #"\u00A0:"))
+;     (first))
+
+; (->> data-html
+;     (find-boxes)
+;     (map select-informations))
+
+(->> (auth-cookie "USER" "PASSWORD")
+    (get-borrowings)
+    (parse-html)
+    (s/select (s/attr "summary" #{"Prêts en cours"}))
+    (first)
     (find-boxes)
-    (map select-informations))
+    (map select-informations)
+    (#(doseq [b %] (println (:titre b) (:date-de-retour b)))))
