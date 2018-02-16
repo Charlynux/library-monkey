@@ -1,0 +1,243 @@
+/* SEPARATEURS (tiret)*/
+.x-menu-sep{
+	height:1px;
+}
+
+.x-menu li.x-menu-sep-li{
+	padding:0px;
+}
+
+/*[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[__M E N U S___E R M E S__]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]*/
+
+.ermes_menu_active {
+	color:#afa !important;
+}
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&__M E N U S__C O N N E X E S__&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+.Connexes {
+	/*display:none;*/
+	margin: 0 10px 0 0;
+	padding: 0;
+}
+
+.Connexes li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.Connexes li a {
+	margin: 0;
+    padding: 4px 4px 3px 4px; 
+    font-size:0.95em;
+	font-weight: bold;
+    height: 19px;
+	color:#e5ff8b;
+    text-decoration: none;
+}
+.Connexes a:hover {
+    color: #FFF;
+}
+.Connexes a span {
+	margin: 0;
+    padding: 4px 2px 3px 0;
+}
+.Connexes lI a:hover span {
+}
+
+/*____________________________S P A C E R S__C O N N E X E S______________________________*/
+
+.Connexes li.MenuSpacer a,
+.Connexes li.MenuSpacer a span {
+    padding: 0;
+	background: url(Images/Charte/menu/spacer_Connexes.gif) no-repeat 0 4px;
+	cursor:default;
+}
+.Connexes li.MenuSpacer a:hover,
+.Connexes li.MenuSpacer a span:hover {
+    padding: 0;
+	cursor:default;
+}
+
+.Connexes li.Spacer_1 A {
+	/*display:none;*/
+}
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&__PIED DE PAGE__&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+#FOOTER
+{
+	display:none;
+}
+
+.Footer {
+	/*display:none;*/
+	margin: 10 0 0 10;
+	padding: 0;
+}
+
+.Footer li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.Footer li a {
+	margin: 0;
+    padding: 4px 4px 3px 4px; 
+    font-size:0.95em;
+	font-weight: bold;
+    height: 19px;
+	color:#aaa;
+    text-decoration: none;
+}
+.Footer a:hover {
+    color: #888;
+}
+.Footer a span {
+	margin: 0;
+    padding: 4px 2px 3px 0;
+}
+.Footer lI a:hover span {
+}
+
+/*____________________________SPACERS PIED DE PAGE______________________________*/
+
+.Footer li.MenuSpacer a,
+.Footer li.MenuSpacer a span {
+    padding: 0;
+	background: url(Images/Charte/menu/spacer_Connexes.gif) no-repeat 0 4px;
+	cursor:default;
+}
+.Footer li.MenuSpacer a:hover,
+.Footer li.MenuSpacer a span:hover {
+    padding: 0;
+	cursor:default;
+}
+
+.Footer li.Spacer_1 A {
+	/*display:none;*/
+}
+
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&__M E N U S__D E P L I A B L E S__&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+a.root_menu:focus
+{
+	text-decoration:underline;
+}
+
+.LEVEL1 {
+	margin: 0;
+	padding: 0;
+}
+
+.LEVEL1 li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.LEVEL1 li a {
+	margin: 0;
+    padding: 4px 0 3px 0; 
+    height: 19px;
+	color: #FFF;
+    font-size:0.95em;
+	font-weight: bold;
+	text-transform:uppercase;
+    text-decoration: none;
+}
+.LEVEL1 li a:hover {
+    color: #daff46;
+}
+.LEVEL1 li a span {
+	margin: 0;
+    padding: 4px 5px 3px 3px;
+}
+.LEVEL1 li a:hover span {
+}
+
+/*____________________________S P E C S__L E V E L_1____________________________*/
+
+
+
+/*___________________________S P A C E R S__L E V E L_1_________________________*/
+
+.LEVEL1 LI.MenuSpacer a,
+.LEVEL1 LI.MenuSpacer a span,
+.LEVEL1 LI.MenuSpacer {
+    padding: 0;
+	background: url(Images/Charte/menu/spacer_L1.gif) no-repeat 0 4px;
+	cursor:default;
+}
+.LEVEL1 LI.MenuSpacer a:hover,
+.LEVEL1 LI.MenuSpacer a span:hover {
+    padding: 0;
+	cursor:default;
+}
+
+.LEVEL1 LI.Spacer_1 a {
+	/*display:none;*/
+}
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&__M E N U S__N I V E A U_2___EXTJS__&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+.ermes_main_menu_panel {
+	background: #97c006 url(images/charte/menu/ermes_main_menu_panel.jpg);
+}
+.x-menu {
+	padding: 2px;
+	border: 1px solid #718BB7;
+}
+.x-shadow {
+	display: none;
+	z-index: 14999;
+	left: 226px;
+	top: 126px;
+	width: 83px;
+	height: 50px;
+}
+
+/*___UL____*/
+
+.x-menu-list {}
+
+/*___LI____*/
+
+.x-menu-list-item {
+	padding: 2px 10px 2px 2px;
+}
+.x-menu-item-active {
+	background: none;
+	border: none;
+	padding: 2px 10px 2px 2px;
+}
+
+/*__LIENS__*/
+
+.x-menu a.x-menu-item {
+	padding: 0 0 0 8;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 12px;
+	background: none;
+}
+.x-menu a.x-menu-item:hover,
+.x-menu a.x-menu-item:focus {
+	color:#FFF;
+	font-weight: bold;
+	font-size: 12px;
+}
+.x-menu-item-active a.x-menu-item {
+	color: #FFF;
+}
+.x-menu-item-active a.x-menu-item: hover {
+	color: #FFF;
+}
+
+

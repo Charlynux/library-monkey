@@ -1,0 +1,83 @@
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&__P A G I N A T I O N__&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+.selections_ajax_selection_container .CONTENT_ENTETE {
+	height:1.5em;
+	padding:0;
+	background: url(Images/Charte/content_entete.gif) no-repeat;
+}
+.selections_ajax_selection_container .CONTENT_ENTETE P {
+	margin:0;
+	padding:0 0 0 22px;
+	font-weight:bolder;
+	color:#FFF;
+	border-bottom:none;
+	background: url(Images/Charte/content_entete_P.gif) no-repeat right top;
+}
+.selections_ajax_selection_container .CONTENT_CORPS {
+	padding:0 10px 10px;
+}
+.selections_ajax_selection_container .ENCART_FUNCTIONS {
+	/*float:right;
+	margin:5px 10px 0px 0px;*/
+}
+.selections_ajax_selection_container .ermes_medias_selection_comment {
+	font:bolder italic;
+	color:#98c007;
+}
+.selections_ajax_divLayout {
+	border:0;
+	margin:0;
+	padding:5px 0;
+}
+.selections_ajax_moreLink {
+	background-color:transparent;
+	border:1px solid transparent;
+	border-bottom:1px solid #5973a7;
+	clear:both;
+	height:1.5em;
+	margin:0 auto 10px auto;
+}
+.selections_ajax_moreLink .see_more , .selections_ajax_moreLink .see_more a{
+	font:bolder italic;
+	color:#ff8000;
+}
+
+#Pagination_Navig {
+	float:left;
+}
+#Pagination_Navig A.Pagina_Precedente {
+	padding:0 0 0 13px;
+	color:#000;
+	background:url(Images/Charte/pagination_precedente.gif) no-repeat;
+	text-decoration:none;
+}
+#Pagination_Navig A.Pagina_Suivante {
+	padding:0 13px 0 0;
+	color:#000;
+	background:url(Images/Charte/pagination_suivante.gif) no-repeat right;
+	text-decoration:none;
+}
+#Pagination_Navig A:hover {
+	color:#ff8000;
+}
+
+#Pagination_Navig SPAN {
+	padding:0 5px;
+	font-weight:bolder;
+}
+
+#Pagination_Navig input {
+	vertical-align:middle;
+}
+.selections_ajax_openSelection_link {
+	cursor:pointer;
+	float:right;
+	height:16px;
+	margin:0 2px;
+	width:16px;
+}
+
+.selections_ajax_selection_container .ermes_medias_ressource_publisher {
+	color:#98c007;
+}

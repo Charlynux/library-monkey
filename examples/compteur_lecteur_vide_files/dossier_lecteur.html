@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0131)http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&OUTPUT=CANVAS&STRCODEDOCBASE=CAAM -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="GENERATOR" content="Archimed JSE 0.6.3.1"><meta http-equiv="content-language" content="fr"><title>Portail de lecture publique</title><meta name="description" content="Crystal Framework le portail d&#39;Archimed"><meta name="keywords" content="MASC;Archimed;Gestionnaire de portail;système d&#39;information,espaces culturels,gestion des compétences,gestion des impressions,référentiel d&#39;entreprise,GED,gestion documentaire,métamoteur,recherche documentaire,documentation électronique,ressources électroniques,portail d&#39;entreprise,collectivités,bibliothéconomie,bibliothèques,espace public numérique,revue de presse,gestion de contenu,gestion de courrier,archivage,EAD,médiathèque,photothèque,base de connaissance,moteur de recherche,XML,publication,workflow,ECM,EPN,ICM,Z39.50,ISO2709,Unimarc,multibase,metamoteur,indexation,fulltext,elise,watchdoc,book-line,cd-line,masc,sim,webcontent,stronghold,simplicite"><meta name="robots" content="index, follow"><link rel="stylesheet" type="text/css" href="./JSECSS.asp"><link media="print" rel="stylesheet" type="text/css" href="./JSECSS(1).asp"><link rel="stylesheet" type="text/css" href="./ext-all.css" media="all"><link rel="stylesheet" type="text/css" href="./global.css" media="all"><link rel="stylesheet" type="text/css" href="./thickbox.css" media="all"><link rel="stylesheet" type="text/css" href="./webcontent.css" media="all"><link rel="stylesheet" type="text/css" href="./Agenda_Culturel_Admin.css" media="screen"><link rel="stylesheet" type="text/css" href="./NavigationThematique.css" media="screen"><link rel="stylesheet" type="text/css" href="./PaginationSelections.css" media="screen"><link rel="stylesheet" type="text/css" href="./wai.css" media="screen"><link rel="stylesheet" type="text/css" href="./menu.css" media="all"><link rel="stylesheet" type="text/css" href="./charte.css" media="all"><link rel="stylesheet" type="text/css" href="./jquery.fancybox-1.2.6.css" media="all"><link rel="shortcut icon" type="image/x-icon" href="http://bibliotheques.amiens.fr/Skins/Exploitation/images/favicon.ico"><link rel="icon" type="image/x-icon" href="http://bibliotheques.amiens.fr/Skins/Exploitation/images/favicon.ico"><script type="text/javascript">
+					var JSCache = true;
+					var JSPath2Toolkit = '/Toolkit/JSE/';
+					var JSGlobalSkinName = 'Exploitation';
+					var JSPath2Images  = '/Skins/Exploitation/images/';
+					var JSPath2Skin = '/Skins/Exploitation/';
+					var JSPath2Script = '/Toolkit/JSE/JSEPackage.asp';
+					var JSBrowserType = 'MZ';
+					var JSLangCode = 'fr';
+					var JSLangDirection = 'LTR';
+				
+					
+		       			//***Body scrolling***//
+		       			if(window.scrollbars) window.scrollbars.visible=true;</script></head><body style="margin:0px;padding:4;" dir="LTR" onunload="if(window.scrollbars) window.scrollbars.visible=true;" class="  ext-chrome ext-mac"><script type="text/javascript">
+        function _packages()
+        {
+            return {
+                acknowledge:function(s){},
+                complete:function(s){}
+            }
+        };
+
+        var packages=new _packages(); 
+					</script><script type="text/javascript" src="./JSEScript(9).aspx"></script><script type="text/javascript" src="./JSEScript(10).aspx"></script><script type="text/javascript" src="./JSEScript(11).aspx"></script><script type="text/javascript" src="./JSEScript(12).aspx"></script><script type="text/javascript" src="./JSEScript(13).aspx"></script><script type="text/javascript" src="./JSEScript(14).aspx"></script><script type="text/javascript">
+						// Variables globales
+						var g_strInstance = "EXPLOITATION";
+						var g_strCN = '';
+						var g_strDN = '';
+						var g_strLocalParam = "";
+						var g_strOtherParam = "";
+						var g_msgSubmitInfo = "Voulez-vous vraiment modifier le profil de '%1' ?";
+						var g_titleSubmitInfo = "Modifier un profil";
+						var g_strDisplayName = "";
+						var g_strMsgPwdOk = "Le mot de passe a été&nbsp;correctement changé.";
+						var g_strMsgPwdKo = "Une erreur s'est produite lors de la mise à jour du mot de passe,&nbsp;il&nbsp;demeure&nbsp;inchangé.";
+						var g_strMsgPwdInvalid = "Le nouveau mot de passe fournit est incorrect.<BR>Il doit être au mimimin composé&nbsp;de %1 caractères et doit respecter des contraintes de complexicité comme contenir&nbsp;au moins un caractère numérique&nbsp;ou contenir&nbsp;au moins un caractère non alpha-numérique.";
+						var g_titleConfirmRequestAnnulment = "Demande de résilation";
+						var g_msgConfirmRequestAnnulment = "Attention, après validation de votre demande par l'un de nos administrateurs, votre compte sera supprimé, vous pourrez plus accéder à aucuns des services.&nbsp;Souhaitez-vous continuer ?";
+						var g_userRoleID = '';
+						var g_directory = '';
+						var g_ldapConfiguration = '';
+						var g_xmlUser='<ENTRIES LDAPCONFIG="'+g_ldapConfiguration+'" DIRECTORY="'+g_directory+'"><ENTRY DN="'+g_strDN+'"\/><\/ENTRIES>';				
+						var g_xmlInitialValue='';
+						var sWmlBOOKING_REMOVAL_FAILED = 'Votre réservation n\'a pas été supprimée.';
+						var sWmlRENEW_FAILED = 'Votre prêt n\'a pas été prolongé.';
+						var sWmlBOOKING_FAILED = 'Votre réservation n\'a pas été enregistrée.';
+						var sWmlBOOKING_SUCCEEDED = 'Votre réservation a été enregistrée.';
+						
+						function UpdatePassword()
+						{
+							popups.show('changePassword', callbackUpdatePassword);
+						}
+											
+						function callbackUpdatePassword(id, value)
+						{
+							if (value)
+							{
+								popups.get('pwdPopup').putPropertyValue('message',g_strMsgPwdOk)
+								popups.show('pwdPopup');
+							}				
+						}
+					</script><script type="text/javascript">packages.requires("DOMCORE");</script><script type="text/javascript">
+				if(typeLibrary.childNodes)
+				{
+					var nodes=[[1,'TYPE',,[["id",'popupdone'],["theme",'warning'],["title",'Réservation'],["height",'150'],["width",'200']],],[1,'TYPE',,[["id",'popupPassword'],["theme",'iframe'],["height",'150'],["icon",'General/Icons/Popups/password.gif']],],[1,'TYPE',,[["id",'popupconfirm'],["theme",'warning'],["height",'150'],["icon",'General/Icons/Popups/alert.gif']],],[1,'TYPE',,[["id",'popuperror'],["theme",'warning'],["title",'Réservation'],["height",'150'],["width",'200'],["icon",'General/Icons/Popups/cancel.gif']],]];
+					
+					if(nodes)
+					{		
+						for(var i=0;i<nodes.length;i++)
+						{
+							var child;
+							switch(nodes[i][0])
+							{
+								case NODE_ELEMENT:
+									child=typeLibrary.createElement(nodes[i][1]);
+									typeLibrary.documentElement.appendChild(child);
+									child.loadData(nodes[i]);
+									break;
+								case NODE_TEXT:
+									child=typeLibrary.createTextNode(nodes[i][2]);
+									typeLibrary.documentElement.appendChild(child);
+									break;								
+							}	
+						}
+					}
+					
+
+				}
+				else
+				{
+					typeLibrary.loadData([1,'TYPES',,,[[1,'TYPE',,[["id",'popupdone'],["theme",'warning'],["title",'Réservation'],["height",'150'],["width",'200']],],[1,'TYPE',,[["id",'popupPassword'],["theme",'iframe'],["height",'150'],["icon",'General/Icons/Popups/password.gif']],],[1,'TYPE',,[["id",'popupconfirm'],["theme",'warning'],["height",'150'],["icon",'General/Icons/Popups/alert.gif']],],[1,'TYPE',,[["id",'popuperror'],["theme",'warning'],["title",'Réservation'],["height",'150'],["width",'200'],["icon",'General/Icons/Popups/cancel.gif']],]]]);
+				}
+			</script><script type="text/javascript">packages.requires("POPUPS");</script><script type="text/javascript">        
+				if(popups.childNodes)
+				{
+				var nodes=[[1,'POPUP',,[["ID",'changePassword'],["height",'150'],["width",'400'],["type",'popupPassword'],["title",'Changer de mot de passe (choisissez des chiffres)'],["src",'/cda/administration/directory/updatepassword.aspx?INSTANCE=EXPLOITATION&ROLEID=CRYSTAL://standard/user=cd208b156a4c114b95751a2540c6f7cb']],],[1,'POPUP',,[["ID",'done'],["type",'popupdone']],[[1,'BUTTON',,[["ID",'OK'],["label",'Ok'],["onClick",'this.dismiss(false)'],["keys",'27']],]]],[1,'POPUP',,[["ID",'error'],["type",'popuperror']],[[1,'BUTTON',,[["ID",'OK'],["label",'Ok'],["onClick",'this.dismiss(true)'],["keys",'13']],]]],[1,'POPUP',,[["ID",'pwdPopup'],["height",'150'],["width",'400'],["type",'popupconfirm'],["title",'Changer de mot de passe (choisissez des chiffres)']],[[1,'BUTTON',,[["ID",'OK'],["onClick",'this.dismiss(true)'],["keys",'13'],["label",'Ok']],]]]];
+					
+					if(nodes)
+					{		
+						for(var i=0;i<nodes.length;i++)
+						{
+							var child;
+							switch(nodes[i][0])
+							{
+								case NODE_ELEMENT:
+									child=popups.createElement(nodes[i][1]);
+									popups.documentElement.appendChild(child);
+									child.loadData(nodes[i]);
+									child.write();																		
+									break;
+								case NODE_TEXT:
+									child=popups.createTextNode(nodes[i][2]);
+									popups.documentElement.appendChild(child);
+									break;								
+							}								
+						}
+					}
+					
+				}
+				else
+				{					
+					popups.loadData([1,'POPUPS',,,[[1,'POPUP',,[["ID",'changePassword'],["height",'150'],["width",'400'],["type",'popupPassword'],["title",'Changer de mot de passe (choisissez des chiffres)'],["src",'/cda/administration/directory/updatepassword.aspx?INSTANCE=EXPLOITATION&ROLEID=CRYSTAL://standard/user=cd208b156a4c114b95751a2540c6f7cb']],],[1,'POPUP',,[["ID",'done'],["type",'popupdone']],[[1,'BUTTON',,[["ID",'OK'],["label",'Ok'],["onClick",'this.dismiss(false)'],["keys",'27']],]]],[1,'POPUP',,[["ID",'error'],["type",'popuperror']],[[1,'BUTTON',,[["ID",'OK'],["label",'Ok'],["onClick",'this.dismiss(true)'],["keys",'13']],]]],[1,'POPUP',,[["ID",'pwdPopup'],["height",'150'],["width",'400'],["type",'popupconfirm'],["title",'Changer de mot de passe (choisissez des chiffres)']],[[1,'BUTTON',,[["ID",'OK'],["onClick",'this.dismiss(true)'],["keys",'13'],["label",'Ok']],]]]]]);					
+					popups.write();
+				}							
+			</script><div id="changePassword" style="position:absolute;z-index:30000;display:none;"></div><div id="done" style="position:absolute;z-index:30000;display:none;"></div><div id="error" style="position:absolute;z-index:30000;display:none;"></div><div id="pwdPopup" style="position:absolute;z-index:30000;display:none;"></div><table cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td align="right"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td onmouseover="switchSrc(getElementById(&#39;IDGTHXREFMCUPOFUREAUSZVD22MIQAVVCX5TXG42OK23KMH2QB3I2M_bt&#39;))" onmouseout="switchSrc(getElementById(&#39;IDGTHXREFMCUPOFUREAUSZVD22MIQAVVCX5TXG42OK23KMH2QB3I2M_bt&#39;))" title="Changer de mot de passe (choisissez des chiffres)"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><a class="JSPOPUP_BUTTON" href="http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&amp;OUTPUT=CANVAS&amp;STRCODEDOCBASE=CAAM#" onclick="UpdatePassword();return false;;return false;" id="IDGTHXREFMCUPOFUREAUSZVD22MIQAVVCX5TXG42OK23KMH2QB3I2M" title="Changer de mot de passe (choisissez des chiffres)"><img id="IDGTHXREFMCUPOFUREAUSZVD22MIQAVVCX5TXG42OK23KMH2QB3I2M_bt" src="./change-password.gif" lowsrc="/Skins/Exploitation/images/General/Buttons/Toolbar-buttons/change-password-o.gif" border="0" alt="Changer de mot de passe (choisissez des chiffres)"></a></td><td style="padding-right:10px;padding-left:3px"><a class="JSPOPUP_BUTTON" href="http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&amp;OUTPUT=CANVAS&amp;STRCODEDOCBASE=CAAM#" onclick="UpdatePassword();return false;;return false;">Changer de mot de passe (choisissez des chiffres)</a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><form name="FORMULAIRE" id="FORMULAIRE" method="GET"><input type="hidden" name="CodeBarre" value="2015547346"><input type="hidden" name="Password" value="241082"><input type="hidden" name="strCodeDocBase" value="CAAM"><input type="hidden" name="ACT" value=""><input type="hidden" name="VALUE" value=""></form><div><script language="javascript">
+            function DoAction( item_id, act ) {
+            document.forms['FORMULAIRE'].elements['ACT'].value = act;
+            document.forms['FORMULAIRE'].elements['VALUE'].value = item_id;
+            document.forms['FORMULAIRE'].submit();
+            }
+					</script><table cellspacing="0" class="CONTENT " summary="Informations générales"><tbody><tr><td class="CONTENT_ENTETE"><p><span>Informations générales</span></p></td></tr><tr><td class="CONTENT_CORPS"><a name="haut"></a><br><div class="dossierlecteur_box"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="LISTEDETAIL dossierlecteur_linesep dossierlecteur_label">Nom&nbsp;:&nbsp;
+							</td><td align="left" class="LISTEDETAILVALUE dossierlecteur_linesep">Monsieur FOURDRIGNIER CHARLES</td></tr><tr><td class="LISTEDETAIL dossierlecteur_linesep dossierlecteur_label">Adresse&nbsp;:&nbsp;
+							</td><td align="left" class="LISTEDETAILVALUE dossierlecteur_linesep">9 RUE SAINT GEOFFROY 80000 AMIENS</td></tr><tr><td class="LISTEDETAIL dossierlecteur_linesep dossierlecteur_label">Code Barre&nbsp;:&nbsp;
+							</td><td align="left" class="LISTEDETAILVALUE dossierlecteur_linesep">2015547346</td></tr><tr><td class="LISTEDETAIL dossierlecteur_linesep dossierlecteur_label">Date d'expiration du compte&nbsp;:&nbsp;
+							</td><td align="left" class="LISTEDETAILVALUE dossierlecteur_linesep"> 01/09/18 </td></tr><tr><td class="LISTEDETAIL dossierlecteur_linesep dossierlecteur_label">Solde de votre porte-monnaie virtuel&nbsp;:&nbsp;
+							</td><td align="left" class="LISTEDETAILVALUE dossierlecteur_linesep">0 euros</td></tr></tbody></table></div><br><table><tbody><tr><td width="33%"><a href="http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&amp;OUTPUT=CANVAS&amp;STRCODEDOCBASE=CAAM#loan">Accéder à vos 0 emprunt(s)</a></td><td width="33%"><a href="http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&amp;OUTPUT=CANVAS&amp;STRCODEDOCBASE=CAAM#hold">Accéder à vos 0 réservation(s)</a></td><td width="33%"></td></tr></tbody></table><br></td></tr><tr><td class="CONTENT_PIED"><p>&nbsp;</p></td></tr></tbody></table><table cellspacing="0" class="CONTENT " summary="Prêts en cours"><tbody><tr><td class="CONTENT_ENTETE"><p><span>Prêts en cours</span></p></td></tr><tr><td class="CONTENT_CORPS">Vous n'avez aucun prêt en cours.<div style="text-align:right"><a href="http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&amp;OUTPUT=CANVAS&amp;STRCODEDOCBASE=CAAM#haut">Retour en haut</a></div></td></tr><tr><td class="CONTENT_PIED"><p>&nbsp;</p></td></tr></tbody></table><table cellspacing="0" class="CONTENT " summary="Réservations en cours"><tbody><tr><td class="CONTENT_ENTETE"><p><span>Réservations en cours</span></p></td></tr><tr><td class="CONTENT_CORPS">Vous n'avez aucune réservation en cours.<div style="text-align:right"><a href="http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&amp;OUTPUT=CANVAS&amp;STRCODEDOCBASE=CAAM#haut">Retour en haut</a></div></td></tr><tr><td class="CONTENT_PIED"><p>&nbsp;</p></td></tr></tbody></table></div><!--Generated by JSE , (c)  Archimed SA. Mozilla Browser Compatibility, last modified 4 sept. 2007.--><div id="fancy_overlay"></div><div id="fancy_loading"><div></div></div><div id="fancy_outer"><div id="fancy_inner"><div id="fancy_close"></div><div id="fancy_bg"><div class="fancy_bg" id="fancy_bg_n"></div><div class="fancy_bg" id="fancy_bg_ne"></div><div class="fancy_bg" id="fancy_bg_e"></div><div class="fancy_bg" id="fancy_bg_se"></div><div class="fancy_bg" id="fancy_bg_s"></div><div class="fancy_bg" id="fancy_bg_sw"></div><div class="fancy_bg" id="fancy_bg_w"></div><div class="fancy_bg" id="fancy_bg_nw"></div></div><a href="javascript:;" id="fancy_left"><span class="fancy_ico" id="fancy_left_ico"></span></a><a href="javascript:;" id="fancy_right"><span class="fancy_ico" id="fancy_right_ico"></span></a><div id="fancy_content"></div></div></div><div id="fancy_title"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="fancy_title" id="fancy_title_left"></td><td class="fancy_title" id="fancy_title_main"><div></div></td><td class="fancy_title" id="fancy_title_right"></td></tr></tbody></table></div><div id="tooltip_container" class="tooltip" style="display: none;"></div></body></html>

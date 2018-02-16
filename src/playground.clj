@@ -32,3 +32,38 @@
         })] 
         (println (:error response))
         (println (:status response))))
+
+;;;;;;;;;;;
+;;;; HTML PARSING
+;;;;;;;;;;;
+(use 'hickory.core)
+(require '[hickory.select :as s])
+
+(def raw-html (slurp "examples/compteur_lecteur_a_renouveller_files/dossier_lecteur.html"))
+
+(def parse-html (comp as-hickory parse))
+
+(def data-html (parse-html raw-html))
+
+(defn create-keyword [label]
+    (->
+        (clojure.string/split label #":")
+        (first)
+        (clojure.string/replace #" " "-")
+        (clojure.string/lower-case)
+        (keyword)))
+
+(defn select-informations [data]
+    (->> data
+        (s/select (s/class "dossierlecteur_linesep"))
+        (map (comp first :content))
+        (partition 2)
+        (vec)
+        (into {} (map (fn [[label value]] [(create-keyword label) value])))))
+
+(defn find-boxes [data]
+    (s/select (s/class "dossierlecteur_box") data))
+
+(->> data-html
+    (find-boxes)
+    (map select-informations))
