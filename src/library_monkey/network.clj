@@ -26,7 +26,6 @@
         @(http/get "http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp?INSTANCE=EXPLOITATION&OUTPUT=CANVAS&STRCODEDOCBASE=CAAM" 
         {
             :headers {
-                "Accept" "application/json"
                 "Cookie" cookie
             }
             :follow-redirects false
