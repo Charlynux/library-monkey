@@ -1,0 +1,187 @@
+/*CSS Hack pour centrer le div "R"*/
+
+div#R{
+	top:0px !important;
+	left:0px !important;
+	position:relative !important;
+	text-align:center !important;
+	margin:0px auto !important;
+	padding:0pt !important;
+	display:block !important;
+}
+
+/* AjaxControl Toolkit Onglets DEBUT ----------------------------------------------------------------------------------------------*/
+/* default layout */
+.ajax__tab_default .ajax__tab_header {white-space:nowrap;}
+.ajax__tab_default .ajax__tab_outer {display:-moz-inline-box;display:inline-block}
+.ajax__tab_default .ajax__tab_inner {display:-moz-inline-box;display:inline-block}
+.ajax__tab_default .ajax__tab_tab {margin-right:4px;overflow:hidden;text-align:center;cursor:pointer;display:-moz-inline-box;display:inline-block}
+
+/* xp theme */
+.ajax__tab_xp .ajax__tab_header {font-family:verdana,tahoma,helvetica;font-size:11px;background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bNtYnGoTp2LNqhMzpSESCvOQ2&t=633177803480000000) repeat-x bottom;}
+.ajax__tab_xp .ajax__tab_outer {padding-right:4px;background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bNo5IFihuypURLlEv3VfO2LA2&t=633177803480000000) no-repeat right;height:21px;}
+.ajax__tab_xp .ajax__tab_inner {padding-left:3px;background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bNqd-Ay6JLEVyyjIt2iqn36g2&t=633177803480000000) no-repeat;}
+.ajax__tab_xp .ajax__tab_tab {height:21px;padding:4px;margin:0;background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwu79fZzJ7jQuhLKWLRHdZ3NAerW5fOvj1Ksjqmyxp-5og2&t=633177803480000000) repeat-x;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_outer {background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bNo59aOUZTRK1bEAw39XUbXg2&t=633177803480000000) no-repeat right;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_inner {background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bNSYHhcZHKHXktdCZ5vBnz9A2&t=633177803480000000) no-repeat;}
+.ajax__tab_xp .ajax__tab_hover .ajax__tab_tab {background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bNQWGeXYoPMeTALO1bIaiWZQ2&t=633177803480000000) repeat-x;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_outer {background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bNN_MBfT3Rsnsbz3AE5nivtRnPvS0dMVqcwL6DCqkMZVU1&t=633177803480000000) no-repeat right;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_inner {background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bN7B7I4rHZ_p6OiGPoeAtBww2&t=633177803480000000) no-repeat;}
+.ajax__tab_xp .ajax__tab_active .ajax__tab_tab {background:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwtx2qdzgrHag-io7i7Wt3bNDbShfdyS3M6bRDt37eWGCw2&t=633177803480000000) repeat-x;}
+.ajax__tab_xp .ajax__tab_body {font-family:verdana,tahoma,helvetica;font-size:10pt;border:1px solid #999999;border-top:0;padding:8px;background-color:#ffffff;}
+
+/* scrolling */
+.ajax__scroll_horiz {overflow-x:scroll;}
+.ajax__scroll_vert {overflow-y:scroll;}
+.ajax__scroll_both {overflow:scroll}
+.ajax__scroll_auto {overflow:auto}
+
+
+/* AjaxControl Toolkit Onglets FIN ----------------------------------------------------------------------------------------------*/
+
+/* AjaxControl Toolkit Calendrier DEBUT ----------------------------------------------------------------------------------------------*/
+.ajax__calendar_container {padding:4px;position:absolute;cursor:default;width:170px;font-size:11px;text-align:center;font-family:tahoma,verdana,helvetica;}
+.ajax__calendar_body {height:139px;width:170px;position:relative;overflow:hidden;margin:auto;}
+.ajax__calendar_days, .ajax__calendar_months, .ajax__calendar_years {top:0px;left:0px;height:139px;width:170px;position:absolute;text-align:center;margin:auto;}
+.ajax__calendar_container TABLE {font-size:11px;}
+.ajax__calendar_header {height:20px;width:100%;}
+.ajax__calendar_prev {cursor:pointer;width:15px;height:15px;float:left;background-repeat:no-repeat;background-position:50% 50%;background-image:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwsz9mII8Y3JugNRE0yAtvRBnHcyVOfryHJkYrMeszec2w2&t=633177803480000000);}
+.ajax__calendar_next {cursor:pointer;width:15px;height:15px;float:right;background-repeat:no-repeat;background-position:50% 50%;background-image:url(/AgendaCulturel/WebResource.axd?d=4TZWrygfYgIbNcTwHx-juvdKX4kf5Q7ogj6MUddQJwsz9mII8Y3JugNRE0yAtvRBbmKYwKDyQHoulOoYk6OvCQ2&t=633177803480000000);}
+.ajax__calendar_title {cursor:pointer;font-weight:bold;}
+.ajax__calendar_footer {height:15px;}
+.ajax__calendar_today {cursor:pointer;padding-top:3px;}
+.ajax__calendar_dayname {height:17px;width:17px;text-align:right;padding:0 2px;}
+.ajax__calendar_day {height:17px;width:18px;text-align:right;padding:0 2px;cursor:pointer;}
+.ajax__calendar_month {height:44px;width:40px;text-align:center;cursor:pointer;overflow:hidden;}
+.ajax__calendar_year {height:44px;width:40px;text-align:center;cursor:pointer;overflow:hidden;}
+
+.ajax__calendar .ajax__calendar_container {border:1px solid #646464;background-color:#ffffff;color:#000000;}
+.ajax__calendar .ajax__calendar_footer {border-top:1px solid #f5f5f5;}
+.ajax__calendar .ajax__calendar_dayname {border-bottom:1px solid #f5f5f5;}
+.ajax__calendar .ajax__calendar_day {border:1px solid #ffffff;}
+.ajax__calendar .ajax__calendar_month {border:1px solid #ffffff;}
+.ajax__calendar .ajax__calendar_year {border:1px solid #ffffff;}
+
+.ajax__calendar .ajax__calendar_active .ajax__calendar_day {background-color:#edf9ff;border-color:#0066cc;color:#0066cc;}
+.ajax__calendar .ajax__calendar_active .ajax__calendar_month {background-color:#edf9ff;border-color:#0066cc;color:#0066cc;}
+.ajax__calendar .ajax__calendar_active .ajax__calendar_year {background-color:#edf9ff;border-color:#0066cc;color:#0066cc;}
+
+.ajax__calendar .ajax__calendar_other .ajax__calendar_day {background-color:#ffffff;border-color:#ffffff;color:#646464;}
+.ajax__calendar .ajax__calendar_other .ajax__calendar_year {background-color:#ffffff;border-color:#ffffff;color:#646464;}
+
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_day {background-color:#edf9ff;border-color:#daf2fc;color:#0066cc;}
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_month {background-color:#edf9ff;border-color:#daf2fc;color:#0066cc;}
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_year {background-color:#edf9ff;border-color:#daf2fc;color:#0066cc;}
+
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_title {color:#0066cc;}
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_today {color:#0066cc;}
+
+/* AjaxControl Toolkit Calendrier FIN ----------------------------------------------------------------------------------------------*/
+
+/* Formulaires DEBUT -------------------------------------------------------------------------------------------------------------------*/
+body{padding : 0 0 0 0;margin : 0 0 0 0;}
+
+.AspNet-GridView thead a{color: #FFFFFF;font-weight:bold}
+.AspNet-GridView thead tr{background-image: url(/skins/Exploitation/images/AgendaCulturel/Grid/grid_headerBg.gif);   background-color: #8988A5;   border-bottom: 1px solid #57566F;   padding-left: 3px;  cursor: default;   color: #FFFFFF;    font-family: verdana;   font-size: 10px;  font-weight: bold;  vertical-align:middle ; text-align : left }
+.AspNet-GridView-Alternate{background-color: #f0f0f0;   cursor: default}
+.AspNet-GridView 
+{
+	border:1px solid #aaa;
+}
+.AspNet-GridView thead table tr
+{
+	padding:0px;
+}
+.AspNet-GridView td 
+{
+	padding:0px;
+}
+.AspNet-GridView-Pagination 
+{
+	border:none; 
+	background-color:#aaa;
+	color:#fff;
+}
+
+.AspNet-GridView-Pagination,  .AspNet-GridView-Pagination a
+{
+	color:White;
+}
+.AspNet-GridView table 
+{
+	width:100%
+}
+
+
+.SelectedRow td.FirstDataCell{background-color: #FFEEC2;   border-left: 1px solid #4B4B6F;   border-right: 0px;   padding-left: 2px;   padding-right: 3px;}
+.SelectedRow td.LastDataCell{background-color: #FFEEC2;   border-right: 1px solid #4B4B6F;}
+.GroupHeading{color: #706F91;   background-color: #FFFFFF;   font-family: verdana;   font-weight: bold;  font-size: 11px;   border-bottom: 2px solid #A5A4BD;   padding-top: 10px;  padding-bottom: 3px;}
+.GroupByCell{cursor: pointer;}
+.GroupByText{color: #FFFFFF;   font-size: 11px;     font-weight: bold;   padding-right: 5px;}
+.SliderPopup{background-color: #FFF4D7;   border: 1px solid #4B4B6F;   border-top-color: #9495A2;   border-left-color: #9495A2;   font-size: 11px;   font-family: Verdana;  width: 150px;  height: 30px;}
+#FV_Evenement_Div, AspNet-GridView_Div{clear:both;margin:5px;border:1px solid #ddd;background-color:#f5f5f5}
+#GV_Evenements_Div{float:left;margin:5px}
+#AGENDA_MAIN .ERROR{border:1px solid #ff2222;background-color:#ffaaaa}
+.BigBox {width:100%;height:30}
+.LongBox {width:100%}
+
+/* ListBox de sélection des thèmes */
+.AspNet-GridView select option, .AspNet-GridView span {
+	padding: 0 0 0 16px;
+	background-repeat: no-repeat;
+	}
+
+.AspNet-GridView  .THEME_1 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_1.gif); color: #02B240; }
+.AspNet-GridView  .THEME_2 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_2.gif); color: #CC021F; }
+.AspNet-GridView  .THEME_3 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_3.gif); color: #F6A800; }
+.AspNet-GridView  .THEME_4 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_4.gif); color: #0097F6; }
+.AspNet-GridView  .THEME_5 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_5.gif); color: #AC00BB; }
+.AspNet-GridView  .THEME_6 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_6.gif); color: #87CC02; }
+.AspNet-GridView  .THEME_7 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_7.gif); color: #5C02C1; }
+.AspNet-GridView  .THEME_8 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_8.gif); color: #905500; }
+.AspNet-GridView  .THEME_9 { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_9.gif); color: #BC5800; }
+.AspNet-GridView  .THEME_10  { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_10.gif); color: #0056AE; }
+.AspNet-GridView  .THEME_11  { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_11.gif); color: #F65700; }
+.AspNet-GridView  .THEME_12  { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_12.gif); color: #634E4E; }
+.AspNet-GridView  .THEME_13  { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_13.gif); color: #01B4B2; }
+.AspNet-GridView  .THEME_14  { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_14.gif); color: #F600D0; }
+.AspNet-GridView  .THEME_15  { background-image: url(/skins/Exploitation/Images/AgendaCulturel/menu_theme_15.gif); color: #000000; }
+
+/* On restaure le standard pour le calendrier */
+.AspNet-GridView table table thead tr{background-image:none; background-color :Transparent ; padding:0px}
+td {padding:0px;vertical-align:top}
+
+.Encart_label{background-color:#666;color:#fff;font-weight:bold;font-family:Verdana;font-size:10pt;margin-bottom : 5px;margin-top : 5px;padding:2px;}
+.Encart_sublabel{background-color:#999;color:#fff;font-weight:bold;font-family:Verdana;font-size:10pt;margin-bottom : 5px;margin-top : 5px;padding:2px;}
+
+.AspNet-FormView a, .AspNet-GridView a
+{
+	text-decoration:underline;  
+}
+
+.AGENDA_ADMIN_Title
+{
+	border:1px solid #aaa;
+	background-color:#fafafa;  
+	color:#aaa;
+	width:100%;
+	font-size : 14px;
+	font-weight : bold;
+	margin-bottom:5px;
+}
+
+.AGENDA_ADMIN_Section
+{
+	font-size : 12px;
+	font-weight : bold;
+}
+
+.ADMIN_AGENDA_CULTUREL_Navigation
+{
+	border:1px solid #aaa;
+	padding:5px;
+	background-color : #f0f0ff;	
+	margin:7px 0px 7px 0px;
+}
+
+/* Formulaires FIN -------------------------------------------------------------------------------------------------------------------*/

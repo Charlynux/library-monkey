@@ -1,0 +1,79 @@
+.lexiconCellThumbnail{
+	width:33%
+}
+
+.lexiconTable{
+	padding:1px;
+	background-color:#fff;
+	width:100%
+}
+.lexiconCell{
+	border:1px solid #eee;
+	width:33%
+}
+.Navigation_Ariane {
+	height:2em;
+	margin:0px;
+	padding:3px 0 0 3px;
+}
+.Navigation_Ariane img{
+	vertical-align:middle;
+}
+.Navigation_Accueil {
+	float:left;
+	width:16px;
+	height:16px;
+	margin:0 2px 0 0;
+	padding:0px;
+	background:transparent url(images/charte/navigation_accueil.gif) no-repeat;
+	cursor:pointer;
+	display:block;
+}
+div#Currentlexicons div.lexiconLink
+{
+	width:100px;
+	margin:2px 2px 8px 2px;
+	padding:0px;
+
+	float:left;
+}
+
+div.lexiconDeployLink
+{
+	background-image:url(Images/General/Buttons/IconBar-Buttons/add.png);
+	float:left
+}
+div.lexiconDeployLinkOff
+{
+	background-image:url(Images/General/Buttons/IconBar-Buttons/add-off.png);
+	float:left;
+	cursor:default;
+}
+div.iconContainer {
+	width:16px;
+	height:16px;
+	margin:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	cursor:pointer;
+}
+div#Currentlexicons div.smartLexiconsRow
+{
+	clear:both;
+	overflow:auto;
+	border-top :1px solid #e8f2fe;
+}
+div.backLink
+{
+	background-image:url(Images/Charte/navigation_retour.gif);
+	padding-left : 20px;
+	font-weight:bolder; 
+	width:auto !important;
+	min-height:16px;
+	display:inline;
+}
+.lexiconLinkCount{
+	font-size:80%;
+	font-style:italic;
+	color:#999;
+}

@@ -1,2 +1,6 @@
 # library-monkey
-Substitute for 'check-mediatheque' project
+
+Currently rewrite the project with Clojure.
+
+Previous project was for the library of the city "Lomme", this version is for the city of "Amiens".
+
