@@ -1,29 +1,25 @@
 (ns library-monkey.html-parse
-  (:require [hickory.select :as s]
-            [clojure.string :as str])
-  (:use hickory.core))
+  (:require [hickory.core :as h]
+            [hickory.select :as s]
+            [clojure.string :as str]))
 
-; (def raw-html (slurp "examples/compteur_lecteur_a_renouveller_files/dossier_lecteur.html"))
-
-(def parse-html (comp as-hickory parse))
-
-; (def data-html (parse-html raw-html))
+(def parse-html (comp h/as-hickory h/parse))
 
 (defn create-keyword [label]
   (->
    (str/split label #"\u00A0:\u00A0")
-   (first)
+   first
    (str/replace #" " "-")
    (str/lower-case)
-   (keyword)))
+   keyword))
 
 (defn select-informations [data]
-  (->> data
-       (s/select (s/class "dossierlecteur_linesep"))
-       (map (comp first :content))
-       (partition 2)
-       (vec)
-       (into {} (map (fn [[label value]] [(create-keyword label) value])))))
+  (->>
+   (s/select (s/class "dossierlecteur_linesep") data)
+   (map (comp first :content))
+   (partition 2)
+   vec
+   (into {} (map (fn [[label value]] [(create-keyword label) value])))))
 
 (defn find-boxes [data]
   (s/select (s/class "dossierlecteur_box") data))
@@ -34,6 +30,6 @@
 (defn extract-borrowings [html]
   (->>
    (parse-html html)
-   (extract-borrowings-container)
-   (find-boxes)
+   extract-borrowings-container
+   find-boxes
    (map select-informations)))
