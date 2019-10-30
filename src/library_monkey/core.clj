@@ -31,6 +31,11 @@
     (doseq [borrowing (:borrowings report)]
       (println (:titre borrowing) (:date-de-retour borrowing)))))
 
+(defn rf
+  ([] nil)
+  ([_] nil)
+  ([_ _] nil))
+
 (defn -main
   [& args]
   (let [credentials (s/conform ::credentials args)]
@@ -40,7 +45,8 @@
         (s/explain ::credentials args)
         (flush)
         (System/exit 1))
-      (->> credentials
-           (map manage-user)
-           (map print-report)
-           doall))))
+      (transduce
+       (comp (map manage-user)
+             (map print-report))
+       rf
+       credentials))))
