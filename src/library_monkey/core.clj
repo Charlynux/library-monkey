@@ -10,23 +10,26 @@
 
 (def get-borrowings (comp parse/extract-borrowings net/get-borrowings))
 
-(defn manage-user [{:keys [username password]}]
+(defn proceed [cookie]
+  (->> cookie
+       get-borrowings
+       (map :code-barre)
+       (map (partial net/renew cookie))
+       doall)
+  (get-borrowings cookie))
+
+(defn manage-user [{:keys [username password] :as creds }]
   (let [cookie (net/auth-cookie username password)]
-    (println "Rapport pour carte : " username)
-    (when (::anom/category cookie)
-      (do
-        (println "Erreur lors de l'authenfication : " (::anom/category cookie))
-        (System/exit -1)))
-    (println "Authentification OK")
-    (->> cookie
-         get-borrowings
-         (map (comp (partial net/renew cookie) :code-barre))
-         doall)
-    (println "Prolongation des emprunts effectuée")
-    (->> cookie
-         get-borrowings
-         (map #(println (:titre %) (:date-de-retour %)))
-         doall)))
+    (if (::anom/category cookie)
+      (assoc creds :credentials-error (::anom/category cookie))
+      (assoc creds :borrowings (proceed cookie)))))
+
+(defn print-report [report]
+  (println "Rapport pour carte : " (:username report))
+  (if-let [cred-error (:credentials-error report)]
+    (println "Erreur lors de l'authenfication : " cred-error)
+    (doseq [borrowing (:borrowings report)]
+      (println (:titre borrowing) (:date-de-retour borrowing)))))
 
 (defn -main
   [& args]
@@ -37,4 +40,7 @@
         (s/explain ::credentials args)
         (flush)
         (System/exit 1))
-      (doall (map manage-user credentials)))))
+      (->> credentials
+           (map manage-user)
+           (map print-report)
+           doall))))
