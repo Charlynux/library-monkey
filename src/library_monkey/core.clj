@@ -4,18 +4,22 @@
    [library-monkey.network :as net]
    [library-monkey.html-parse :as parse]
    [clojure.spec.alpha :as s]
-   [cognitect.anomalies :as anom]))
+   [cognitect.anomalies :as anom]
+   [clojure.core.async :as a :refer [<!! <! go chan]]))
 
 (s/def ::credentials (s/+ (s/cat :username string? :password string?)))
 
 (def get-borrowings (comp parse/extract-borrowings net/get-borrowings))
 
+(def discard-chan (chan 10))
+
 (defn proceed [cookie]
-  (->> cookie
-       get-borrowings
-       (map :code-barre)
-       (map (partial net/renew cookie))
-       doall)
+  (<!!
+   (a/pipeline-blocking
+    10
+    discard-chan
+    (comp (map :code-barre) (map (partial net/renew cookie)))
+    (a/to-chan (get-borrowings cookie))))
   (get-borrowings cookie))
 
 (defn manage-user [{:keys [username password] :as creds }]
@@ -45,8 +49,13 @@
         (s/explain ::credentials args)
         (flush)
         (System/exit 1))
-      (transduce
-       (comp (map manage-user)
-             (map print-report))
-       rf
-       credentials))))
+      (let [reports (chan 4)]
+        (a/pipeline-blocking
+         4
+         reports
+         (map manage-user)
+         (a/to-chan credentials))
+        (<!! (a/go-loop []
+               (when-let [r (<! reports)]
+                 (print-report r)
+                 (recur))))))))
