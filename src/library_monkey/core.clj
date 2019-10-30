@@ -13,12 +13,14 @@
 
 (def discard-chan (chan 10))
 
+(defn dot [] (map (fn [v] (print ".") (flush) v)))
+
 (defn proceed [cookie]
   (<!!
    (a/pipeline-blocking
     10
     discard-chan
-    (comp (map :code-barre) (map (partial net/renew cookie)))
+    (comp (map :code-barre) (map (partial net/renew cookie)) (dot))
     (a/to-chan (get-borrowings cookie))))
   (get-borrowings cookie))
 
@@ -29,16 +31,12 @@
       (assoc creds :borrowings (proceed cookie)))))
 
 (defn print-report [report]
+  (println)
   (println "Rapport pour carte : " (:username report))
   (if-let [cred-error (:credentials-error report)]
     (println "Erreur lors de l'authenfication : " cred-error)
     (doseq [borrowing (:borrowings report)]
       (println (:titre borrowing) (:date-de-retour borrowing)))))
-
-(defn rf
-  ([] nil)
-  ([_] nil)
-  ([_ _] nil))
 
 (defn -main
   [& args]
