@@ -1,6 +1,7 @@
 (ns library-monkey.core
   (:gen-class)
   (:require
+   [clojure.pprint :as pprint]
    [library-monkey.network :as net]
    [library-monkey.html-parse :as parse]
    [clojure.spec.alpha :as s]
@@ -31,12 +32,33 @@
       (assoc creds :borrowings (proceed cookie)))))
 
 (defn print-report [report]
-  (println)
-  (println "Rapport pour carte : " (:username report))
+  (println (format "Carte %s - %d document(s)"
+                   (:username report)
+                   (count (:borrowings report))))
   (if-let [cred-error (:credentials-error report)]
     (println "Erreur lors de l'authenfication : " cred-error)
-    (doseq [borrowing (:borrowings report)]
-      (println (:titre borrowing) (:date-de-retour borrowing)))))
+    (if (empty? (:borrowings report))
+      (println "** Aucun document pour cette carte **")
+      (pprint/print-table
+       [:titre :date-de-retour]
+       ;; FIXME : Convert date-de-retour into date for sorting
+       (:borrowings report))))
+  (println))
+
+(comment
+  (print-report
+   {:username "123456789"
+    :borrowings
+    [{:titre "Un titre un peu long" :date-de-retour "03/04/2021"}
+     {:titre "Ippo" :date-de-retour "21/03/2021"}
+     {:titre "Ippo" :date-de-retour "21/03/2021"}
+     {:titre "Asterix" :date-de-retour "03/04/2021"}]})
+
+  (print-report
+   {:username "123456789"
+    :borrowings
+    []})
+  )
 
 (defn -main
   [& args]
