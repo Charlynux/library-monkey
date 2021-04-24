@@ -60,6 +60,24 @@
     []})
   )
 
+(defn generate-reports [credentials]
+  (let [reports (chan 4)]
+    (a/pipeline-blocking
+     4
+     reports
+     (map manage-user)
+     (a/to-chan credentials))
+    (<!! (a/transduce (map identity)
+                      (fn
+                        ([result] result)
+                        ([acc report]
+                         (-> acc
+                             (update :count
+                                     +
+                                     (count (:borrowings report)))
+                             (update :reports conj report))))
+                      { :count 0 :reports [] } reports))))
+
 (defn -main
   [& args]
   (let [credentials (s/conform ::credentials args)]
@@ -69,13 +87,8 @@
         (s/explain ::credentials args)
         (flush)
         (System/exit 1))
-      (let [reports (chan 4)]
-        (a/pipeline-blocking
-         4
-         reports
-         (map manage-user)
-         (a/to-chan credentials))
-        (<!! (a/go-loop []
-               (when-let [r (<! reports)]
-                 (print-report r)
-                 (recur))))))))
+      (let [reports (generate-reports credentials)]
+        (println) ;; Newline after dots.
+        (println (format "Total : %d document(s)" (:count reports)))
+        (doseq [report (:reports reports)]
+          (print-report report))))))
