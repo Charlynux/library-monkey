@@ -10,27 +10,30 @@
 
 (s/def ::credentials (s/+ (s/cat :username string? :password string?)))
 
-(def get-borrowings (comp parse/extract-borrowings net/get-borrowings))
-
 (def discard-chan (chan 10))
 
 (defn dot [] (map (fn [v] (print ".") (flush) v)))
 
-(defn renew-all-borrowings [cookie]
+(defprotocol Library
+  (authenticate [this username password])
+  (get-borrowings [this identity])
+  (renew-borrowing! [this identity borrowing]))
+
+(defn renew-all-borrowings [library cookie]
   (<!!
    (a/pipeline-blocking
     10
     discard-chan
-    (comp (map :code-barre) (map (partial net/renew cookie)) (dot))
-    (a/to-chan (get-borrowings cookie)))))
+    (comp (map #(renew-borrowing! library cookie %)) (dot))
+    (a/to-chan (get-borrowings library cookie)))))
 
-(defn manage-user [{:keys [username password] :as creds }]
-  (let [cookie (net/auth-cookie username password)]
+(defn manage-user [library {:keys [username password] :as creds }]
+  (let [cookie (authenticate library username password)]
     (if (::anom/category cookie)
       (assoc creds :credentials-error (::anom/category cookie))
       (do
-        (renew-all-borrowings cookie)
-        (assoc creds :borrowings (get-borrowings cookie))))))
+        (renew-all-borrowings library cookie)
+        (assoc creds :borrowings (get-borrowings library cookie))))))
 
 (defn print-report [report]
   (println (format "Carte %s - %d document(s)"
@@ -61,12 +64,12 @@
     []})
   )
 
-(defn generate-reports [credentials]
+(defn generate-reports [library credentials]
   (let [reports (chan 4)]
     (a/pipeline-blocking
      4
      reports
-     (map manage-user)
+     (map #(manage-user library %))
      (a/to-chan credentials))
     (<!! (a/transduce (map identity)
                       (fn
@@ -79,6 +82,15 @@
                              (update :reports conj report))))
                       { :count 0 :reports [] } reports))))
 
+(def amiens-library
+  (reify Library
+    (authenticate [this username password]
+      (net/auth-cookie username password))
+    (get-borrowings [this identity]
+      (parse/extract-borrowings (net/get-borrowings identity)))
+    (renew-borrowing! [this identity borrowing]
+      (net/renew identity (:code-barre borrowing)))))
+
 (defn -main
   [& args]
   (let [credentials (s/conform ::credentials args)]
@@ -88,7 +100,7 @@
         (s/explain ::credentials args)
         (flush)
         (System/exit 1))
-      (let [reports (generate-reports credentials)]
+      (let [reports (generate-reports amiens-library credentials)]
         (println) ;; Newline after dots.
         (println (format "Total : %d document(s)" (:count reports)))
         (doseq [report (:reports reports)]
