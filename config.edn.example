@@ -1,0 +1,6 @@
+{
+ :accounts
+ [{:pseudo "Toto"
+   :username "numéro de carte"
+   :password "mot de passe"}]
+}

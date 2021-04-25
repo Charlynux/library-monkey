@@ -8,7 +8,18 @@
    [cognitect.anomalies :as anom]
    [clojure.core.async :as a :refer [<!! <! go chan]]))
 
-(s/def ::credentials (s/+ (s/cat :username string? :password string?)))
+(s/def ::numeric-string (s/and string? #(re-matches #"\d+" %)))
+(s/def ::pseudo string?)
+(s/def ::password ::numeric-string)
+(s/def ::username ::numeric-string)
+(s/def ::account (s/keys :req-un [::username ::password]
+                         :opt-un [::pseudo]))
+(s/def ::accounts (s/coll-of ::account))
+(s/def ::config (s/keys :req-un [::accounts]))
+
+(comment
+  (s/explain-data ::account {:username "TOTO" :password "156"})
+  )
 
 (def discard-chan (chan 10))
 
@@ -37,7 +48,7 @@
 
 (defn print-report [report]
   (println (format "Carte %s - %d document(s)"
-                   (:username report)
+                   (or (:pseudo report) (:username report))
                    (count (:borrowings report))))
   (if-let [cred-error (:credentials-error report)]
     (println "Erreur lors de l'authenfication : " cred-error)
@@ -92,15 +103,15 @@
       (net/renew identity (:code-barre borrowing)))))
 
 (defn -main
-  [& args]
-  (let [credentials (s/conform ::credentials args)]
-    (if (s/invalid? credentials)
+  [config-file & args]
+  (let [config (clojure.edn/read-string (slurp config-file))]
+    (if (not (s/valid? ::config config))
       (do
-        (println "Erreur dans les paramètres")
-        (s/explain ::credentials args)
+        (println "Erreur dans le format du fichier `config.edn`")
+        (s/explain ::config config)
         (flush)
         (System/exit 1))
-      (let [reports (generate-reports amiens-library credentials)]
+      (let [reports (generate-reports amiens-library (:accounts config))]
         (println) ;; Newline after dots.
         (println (format "Total : %d document(s)" (:count reports)))
         (doseq [report (:reports reports)]
