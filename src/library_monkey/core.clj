@@ -16,20 +16,21 @@
 
 (defn dot [] (map (fn [v] (print ".") (flush) v)))
 
-(defn proceed [cookie]
+(defn renew-all-borrowings [cookie]
   (<!!
    (a/pipeline-blocking
     10
     discard-chan
     (comp (map :code-barre) (map (partial net/renew cookie)) (dot))
-    (a/to-chan (get-borrowings cookie))))
-  (get-borrowings cookie))
+    (a/to-chan (get-borrowings cookie)))))
 
 (defn manage-user [{:keys [username password] :as creds }]
   (let [cookie (net/auth-cookie username password)]
     (if (::anom/category cookie)
       (assoc creds :credentials-error (::anom/category cookie))
-      (assoc creds :borrowings (proceed cookie)))))
+      (do
+        (renew-all-borrowings cookie)
+        (assoc creds :borrowings (get-borrowings cookie))))))
 
 (defn print-report [report]
   (println (format "Carte %s - %d document(s)"
