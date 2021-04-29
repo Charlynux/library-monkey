@@ -6,7 +6,7 @@ Gestion automatisée de cartes de bibliothèque pour Amiens.
 
 Sur le [site](http://bibliotheques.amiens.fr/) de la bibliothèque d'Amiens, le prolongement des emprunts n'est pas très ergonomique (clic unitaire amenant vers une page blanche).
 
-Lorsque l'on ajoute à cela la nécessité de suivre les emprunts sur plusieurs cartes. Il devient d'avoir un processus automatisé pour gérer ça.
+Lorsque l'on ajoute à cela la nécessité de suivre les emprunts sur plusieurs cartes. Il devient utile d'avoir un processus automatisé pour gérer ça.
 
 ## Utilisation
 
