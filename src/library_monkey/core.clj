@@ -47,27 +47,35 @@
         (assoc creds :borrowings (get-borrowings library cookie))))))
 
 (defn print-report [report]
-  (println (format "Carte %s - %d document(s)"
-                   (or (:pseudo report) (:username report))
-                   (count (:borrowings report))))
-  (if-let [cred-error (:credentials-error report)]
-    (println "Erreur lors de l'authenfication : " cred-error)
-    (if (empty? (:borrowings report))
-      (println "** Aucun document pour cette carte **")
-      (pprint/print-table
-       [:titre :date-de-retour]
-       ;; FIXME : Convert date-de-retour into date for sorting
-       (:borrowings report))))
+  (let [borrowings (group-by :type-de-document (:borrowings report))]
+    (println (format "Carte %s - %s"
+                     (or (:pseudo report) (:username report))
+                     (clojure.string/join
+                      " | "
+                      (map
+                       (fn [[type docs]] (str (count docs) " " type))
+                       borrowings))))
+    (if-let [cred-error (:credentials-error report)]
+      (println "Erreur lors de l'authenfication : " cred-error)
+      (if (empty? (:borrowings report))
+        (println "** Aucun document pour cette carte **")
+        ;; FIXME : Convert date-de-retour into date for sorting
+        (doseq [[type docs] borrowings]
+          (println (format "** %s **" type))
+          (pprint/print-table
+           [:titre :date-de-retour]
+           docs)))))
   (println))
 
 (comment
   (print-report
    {:username "123456789"
     :borrowings
-    [{:titre "Un titre un peu long" :date-de-retour "03/04/2021"}
-     {:titre "Ippo" :date-de-retour "21/03/2021"}
-     {:titre "Ippo" :date-de-retour "21/03/2021"}
-     {:titre "Asterix" :date-de-retour "03/04/2021"}]})
+    [{:titre "Un titre un peu long" :date-de-retour "03/04/2021" :type-de-document "Livre"}
+     {:titre "Ippo" :date-de-retour "21/03/2021" :type-de-document "Livre"}
+     {:titre "Ippo" :date-de-retour "21/03/2021" :type-de-document "Livre"}
+     {:titre "Asterix" :date-de-retour "03/04/2021" :type-de-document "Livre"}
+     {:titre "Six qui prend" :date-de-retour "03/04/2021" :type-de-document "Jeu"}]})
 
   (print-report
    {:username "123456789"
