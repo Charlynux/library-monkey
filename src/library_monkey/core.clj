@@ -46,7 +46,7 @@
     (if (::anom/category cookie)
       (assoc creds :credentials-error (::anom/category cookie))
       (do
-        (renew-all-borrowings library cookie)
+        #_(renew-all-borrowings library cookie)
         (assoc creds :borrowings (get-borrowings library cookie))))))
 
 (defn ellipsis [s n]
