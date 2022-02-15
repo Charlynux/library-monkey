@@ -35,7 +35,26 @@
                                    "STRCODEDOCBASE" "CAAM"}
                     :headers {"Cookie" cookie}
                     :follow-redirects false})]
-    (:body response)))
+    (cond
+      (<= 200 (:status response) 299) (:body response)
+      (<= 400 (:status response) 499) {::anom/category ::anom/incorrect :response response}
+      :else {::anom/category ::anom/unavalaible :response response})))
+
+(comment
+  "Should be tests"
+
+  (use 'org.httpkit.fake)
+
+  (with-fake-http ["http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp" 500]
+    (get-borrowings "fake-cookie"))
+
+  (with-fake-http ["http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp" 401]
+    (get-borrowings "fake-cookie"))
+
+  (with-fake-http ["http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp" "response body"]
+    (get-borrowings "fake-cookie"))
+
+  )
 
 (defn renew [cookie barcode]
   (let [response @(http/get "http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp"
