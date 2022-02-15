@@ -27,9 +27,19 @@
 (defn extract-borrowings-container [data]
   (first (s/select (s/attr "summary" #{"Prêts en cours"}) data)))
 
+(def formatter (java.time.format.DateTimeFormatter/ofPattern "dd/MM/yyyy"))
+
+(defn string->date [date]
+  (java.time.LocalDate/parse date formatter))
+
+(defn convert-datas [borrowing]
+  (-> borrowing
+      (update :date-de-retour string->date)))
+
 (defn extract-borrowings [html]
   (->>
    (parse-html html)
    extract-borrowings-container
    find-boxes
-   (map select-informations)))
+   (map select-informations)
+   (map convert-datas)))
