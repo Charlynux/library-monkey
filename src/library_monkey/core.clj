@@ -35,7 +35,10 @@
    (a/pipeline-blocking
     10
     discard-chan
-    (comp (map #(renew-borrowing! library cookie %)) (dot))
+    (comp
+     (halt-when ::anom/category)
+     (map #(renew-borrowing! library cookie %))
+     (dot))
     (a/to-chan (get-borrowings library cookie)))))
 
 (defn manage-user [library {:keys [username password] :as creds }]
@@ -45,6 +48,13 @@
       (do
         (renew-all-borrowings library cookie)
         (assoc creds :borrowings (get-borrowings library cookie))))))
+
+(defn ellipsis [s n]
+  (if (< (count s) n)
+    s
+    (str
+     (subs s 0 (- n 3))
+     "...")))
 
 (defn print-report [report]
   (let [borrowings (group-by :type-de-document (:borrowings report))]
@@ -57,14 +67,21 @@
                        borrowings))))
     (if-let [cred-error (:credentials-error report)]
       (println "Erreur lors de l'authenfication : " cred-error)
-      (if (empty? (:borrowings report))
+      (cond
+        (empty? (:borrowings report))
         (println "** Aucun document pour cette carte **")
-        ;; FIXME : Convert date-de-retour into date for sorting
+
+        (::anom/category (:borrowings report))
+        (println (::anom/category (:borrowings report)))
+
+        :else
         (doseq [[type docs] borrowings]
           (println (format "** %s **" type))
           (pprint/print-table
            [:titre :date-de-retour]
-           docs)))))
+           (map
+            (fn [doc] (update doc :titre #(ellipsis % 45)))
+            docs))))))
   (println))
 
 (comment
@@ -72,6 +89,7 @@
    {:username "123456789"
     :borrowings
     [{:titre "Un titre un peu long" :date-de-retour "03/04/2021" :type-de-document "Livre"}
+     {:titre "Un titre vraiment vraiment vraiment vraiment très long" :date-de-retour "03/04/2021" :type-de-document "Livre"}
      {:titre "Ippo" :date-de-retour "21/03/2021" :type-de-document "Livre"}
      {:titre "Ippo" :date-de-retour "21/03/2021" :type-de-document "Livre"}
      {:titre "Asterix" :date-de-retour "03/04/2021" :type-de-document "Livre"}
@@ -106,7 +124,10 @@
     (authenticate [this username password]
       (net/auth-cookie username password))
     (get-borrowings [this identity]
-      (parse/extract-borrowings (net/get-borrowings identity)))
+      (let [borrowings (net/get-borrowings identity)]
+        (if (::anom/category borrowings)
+          borrowings
+          (parse/extract-borrowings borrowings))))
     (renew-borrowing! [this identity borrowing]
       (net/renew identity (:code-barre borrowing)))))
 
