@@ -31,3 +31,12 @@
 
 (d/q query-utilisateurs-avec-emprunt @conn)
 (d/q query-tous-utilisateurs @conn)
+
+(sort-by (juxt first second)
+         (d/q
+          '[:find ?pseudo ?type (count ?e)
+            :where
+            [?e :user ?u]
+            [?e :type-de-document ?type]
+            [?u :pseudo ?pseudo]]
+          @conn))
