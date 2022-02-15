@@ -18,3 +18,4 @@ gradle-app.setting
 
 run.sh
 /config.edn
+/.DS_Store
