@@ -101,23 +101,25 @@
     []})
   )
 
-(defn generate-reports [library credentials]
-  (let [reports (chan 4)]
-    (a/pipeline-blocking
-     4
-     reports
-     (map #(manage-user library %))
-     (a/to-chan credentials))
-    (<!! (a/transduce (map identity)
-                      (fn
-                        ([result] result)
-                        ([acc report]
-                         (-> acc
-                             (update :count
-                                     +
-                                     (count (:borrowings report)))
-                             (update :reports conj report))))
-                      { :count 0 :reports [] } reports))))
+(defn generate-reports [library credentials ch]
+  (a/pipeline-blocking
+   4
+   ch
+   (map #(manage-user library %))
+   (a/to-chan credentials)))
+
+(defn aggregate-reports [ch]
+  (<!! (a/transduce (map identity)
+                    (fn
+                      ([result] result)
+                      ([acc report]
+                       (-> acc
+                           (update :count
+                                   +
+                                   (count (:borrowings report)))
+                           (update :reports conj report))))
+                    { :count 0 :reports [] }
+                    ch)))
 
 (def amiens-library
   (reify Library
@@ -140,7 +142,9 @@
         (s/explain ::config config)
         (flush)
         (System/exit 1))
-      (let [reports (generate-reports amiens-library (:accounts config))]
+      (let [reports-ch (chan 4)
+            reader (generate-reports amiens-library (:accounts config) reports-ch)
+            reports (aggregate-reports reports-ch)]
         (println) ;; Newline after dots.
         (println (format "Total : %d document(s)" (:count reports)))
         (doseq [report (:reports reports)]
