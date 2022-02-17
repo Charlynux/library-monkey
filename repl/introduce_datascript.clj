@@ -3,26 +3,15 @@
 
 (def configuration (clojure.edn/read-string (slurp "config.edn")))
 
-(def schema {:username {:db/unique :db.unique/identity}
-             :user {:db/valueType :db.type/ref}})
-(def conn (d/create-conn schema))
+(def conn (d/create-conn lm/schema))
 
-(let [library lm/amiens-library]
-  (doseq [user (:accounts configuration)]
-    (d/transact! conn [user])
-    (let [cookie (authenticate library
-                               (:username user)
-                               (:password user))]
-      (d/transact! conn
-                   (map
-                    (fn [borrowing] (assoc borrowing :user user))
-                    (get-borrowings library cookie))))))
+(lm/read-all-accounts configuration conn)
 
 (def query-utilisateurs-avec-emprunt
   '[:find ?pseudo
     :where
-    [?e :user ?u]
-    [?u :pseudo ?pseudo]])
+    [?u :pseudo ?pseudo]
+    [?u :borrowings ?b]])
 
 (def query-tous-utilisateurs
   '[:find ?pseudo
@@ -34,9 +23,9 @@
 
 (sort-by (juxt first second)
          (d/q
-          '[:find ?pseudo ?type (count ?e)
+          '[:find ?pseudo ?type (count ?b)
             :where
-            [?e :user ?u]
-            [?e :type-de-document ?type]
-            [?u :pseudo ?pseudo]]
+            [?u :pseudo ?pseudo]
+            [?u :borrowings ?b]
+            [?b :type-de-document ?type]]
           @conn))

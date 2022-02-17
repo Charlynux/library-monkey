@@ -44,7 +44,8 @@
      output)))
 
 (def schema {:username {:db/unique :db.unique/identity}
-             :borrowings {:db/cardinality :db.cardinality/many}})
+             :borrowings {:db/type :db.type/ref
+                          :db/cardinality :db.cardinality/many}})
 (comment
 
   (require '[clojure.spec.gen.alpha :as gen])
@@ -91,6 +92,12 @@
     (renew-borrowing! [this identity borrowing]
       (net/renew identity (:code-barre borrowing)))))
 
+(defn read-all-accounts [config conn]
+  (let [reports-ch (chan 4)
+        reader (generate-reports amiens-library (:accounts config) reports-ch)
+        writer (load-database conn reports-ch)]
+    { :reader (<!! reader) :writer (<!! writer)}))
+
 (defn -main
   [config-file & args]
   (let [config (clojure.edn/read-string (slurp config-file))]
@@ -100,13 +107,9 @@
         (s/explain ::config/config config)
         (flush)
         (System/exit 1))
-      (let [reports-ch (chan 4)
-            conn (d/create-conn schema)
-            reader (generate-reports amiens-library (:accounts config) reports-ch)
-            writer (load-database conn reports-ch)
-            result { :reader (<!! reader) :w (<!! writer)}
+      (let [conn (d/create-conn schema)
+            result (read-all-accounts config conn)
             reports (read-aggregates conn)]
-        (println result)
         (println (format "Total : %d document(s)" (:count reports)))
         (doseq [report (:reports reports)]
           (console/print-report report))))))
