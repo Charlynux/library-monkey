@@ -21,33 +21,16 @@
   (s/explain-data ::account {:username "TOTO" :password "156"})
   )
 
-(def discard-chan (chan 10))
-
-(defn dot [] (map (fn [v] (print ".") (flush) v)))
-
 (defprotocol Library
   (authenticate [this username password])
   (get-borrowings [this identity])
   (renew-borrowing! [this identity borrowing]))
 
-(defn renew-all-borrowings [library cookie]
-  (<!!
-   (a/pipeline-blocking
-    10
-    discard-chan
-    (comp
-     (halt-when ::anom/category)
-     (map #(renew-borrowing! library cookie %))
-     (dot))
-    (a/to-chan (get-borrowings library cookie)))))
-
 (defn manage-user [library {:keys [username password] :as creds }]
   (let [cookie (authenticate library username password)]
     (if (::anom/category cookie)
       (assoc creds :credentials-error (::anom/category cookie))
-      (do
-        #_(renew-all-borrowings library cookie)
-        (assoc creds :borrowings (get-borrowings library cookie))))))
+      (assoc creds :borrowings (get-borrowings library cookie)))))
 
 (defn ellipsis [s n]
   (if (< (count s) n)
@@ -145,7 +128,6 @@
       (let [reports-ch (chan 4)
             reader (generate-reports amiens-library (:accounts config) reports-ch)
             reports (aggregate-reports reports-ch)]
-        (println) ;; Newline after dots.
         (println (format "Total : %d document(s)" (:count reports)))
         (doseq [report (:reports reports)]
           (print-report report))))))
