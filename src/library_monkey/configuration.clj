@@ -7,7 +7,7 @@
                           (s/and string? #(re-matches #"\d+" %))
                           (fn [] (gen/fmap (comp str inc #(Math/abs %))
                                            (gen/int)))))
-(s/def ::pseudo string?)
+(s/def ::pseudo (s/and string? not-empty))
 (s/def ::password ::numeric-string)
 (s/def ::username ::numeric-string)
 (s/def ::account (s/keys :req-un [::username ::password]

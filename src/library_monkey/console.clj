@@ -20,8 +20,9 @@
 (s/def ::date-de-retour ::local-date)
 (s/def ::type-de-document #{"Livre" "Jeu"}) ;; A compléter lorsque d'autres types seront découverts
 (s/def ::borrowing (s/keys :req-un [::titre ::date-de-retour ::type-de-document]))
-(s/def ::borrowings (s/coll-of ::borrowing))
-(s/def ::report (s/keys :req-un [:config/username ::borrowings] :opt-un [:config/pseudo]))
+(s/def ::borrowings (s/coll-of ::borrowing :max-count 20))
+(s/def ::report (s/keys :req-un [::config/username ::borrowings]
+                        :opt-un [::config/pseudo]))
 
 (defn ellipsis [s n]
   (if (< (count s) n)
