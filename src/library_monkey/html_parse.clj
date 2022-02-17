@@ -32,9 +32,13 @@
 (defn string->date [date]
   (java.time.LocalDate/parse date formatter))
 
+(defn clean-title [title]
+  (clojure.string/replace title (str (char 160)) ""))
+
 (defn convert-datas [borrowing]
   (-> borrowing
-      (update :date-de-retour string->date)))
+      (update :date-de-retour string->date)
+      (update :titre clean-title)))
 
 (defn extract-borrowings [html]
   (->>

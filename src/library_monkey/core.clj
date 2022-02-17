@@ -28,29 +28,6 @@
    (map #(manage-user library %))
    (a/to-chan credentials)))
 
-
-(comment
-  (def ch (chan 4))
-  (generate-reports
-   amiens-library
-   (:accounts (clojure.edn/read-string (slurp "config.edn")))
-   ch)
-
-  (def another-ch (chan 4))
-
-  (a/pipeline-blocking
-   4
-   another-ch
-   (map identity)
-   ch)
-
-  (count (<!! (a/into [] another-ch)))
-
-
-
-  )
-
-
 (defn load-database [conn ch]
   (let [output (chan 4)]
     (a/pipeline-blocking
