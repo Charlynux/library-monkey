@@ -5,7 +5,8 @@
                  [hickory "0.7.1"]
                  [com.cognitect/anomalies "0.1.12"]
                  [org.clojure/core.async "0.4.500"]
-                 [datascript "1.3.9"]]
+                 [datascript "1.3.9"]
+                 [org.clojure/test.check "0.9.0"]]
   :plugins [[lein-cljfmt "0.5.7"]]
   :main ^:skip-aot library-monkey.core
   :target-path "target/%s"
