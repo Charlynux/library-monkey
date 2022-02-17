@@ -7,7 +7,8 @@
    [library-monkey.console :as console]
    [clojure.spec.alpha :as s]
    [cognitect.anomalies :as anom]
-   [clojure.core.async :as a :refer [<!! <! go chan]]))
+   [clojure.core.async :as a :refer [<!! <! go chan]]
+   [datascript.core :as d]))
 
 (defprotocol Library
   (authenticate [this username password])
@@ -27,18 +28,79 @@
    (map #(manage-user library %))
    (a/to-chan credentials)))
 
-(defn aggregate-reports [ch]
-  (<!! (a/transduce (map identity)
-                    (fn
-                      ([result] result)
-                      ([acc report]
-                       (-> acc
-                           (update :count
-                                   +
-                                   (count (:borrowings report)))
-                           (update :reports conj report))))
-                    { :count 0 :reports [] }
-                    ch)))
+
+(comment
+  (def ch (chan 4))
+  (generate-reports
+   amiens-library
+   (:accounts (clojure.edn/read-string (slurp "config.edn")))
+   ch)
+
+  (def another-ch (chan 4))
+
+  (a/pipeline-blocking
+   4
+   another-ch
+   (map identity)
+   ch)
+
+  (count (<!! (a/into [] another-ch)))
+
+
+
+  )
+
+
+(defn load-database [conn ch]
+  (let [output (chan 4)]
+    (a/pipeline-blocking
+     4
+     output
+     (comp
+      (map (fn [report] (d/transact! conn [report])))
+      (map (fn [v] (print "L") (flush) v)))
+     ch)
+    (a/transduce
+     (map identity)
+     (completing (fn [acc _] (update acc :count inc)))
+     {:count 0}
+     output)))
+
+(def schema {:username {:db/unique :db.unique/identity}
+             :borrowings {:db/cardinality :db.cardinality/many}})
+(comment
+
+  (require '[clojure.spec.gen.alpha :as gen])
+  (def conn (d/create-conn schema))
+
+  (<!! (load-database
+        conn
+        (a/to-chan (gen/sample (s/gen ::console/report)))))
+  (println)
+
+  (d/q
+   '[:find (count ?b)
+     :where
+     [?u :borrowings ?b]]
+   @conn)
+
+  (count (map first (d/q '[:find (pull ?r [:pseudo])
+                      :where [?r :borrowings ?b]]
+                    @conn)))
+
+  )
+(defn read-aggregates [conn]
+  (hash-map
+   :count (ffirst
+           (d/q
+            '[:find (count ?b)
+              :where
+              [?u :borrowings ?b]]
+            @conn))
+   :reports (map first (d/q '[:find (pull ?r [:pseudo :username :borrowings])
+                         :where [?r :borrowings ?b]]
+                       @conn)))
+  )
 
 (def amiens-library
   (reify Library
@@ -62,8 +124,16 @@
         (flush)
         (System/exit 1))
       (let [reports-ch (chan 4)
+            conn (d/create-conn schema)
             reader (generate-reports amiens-library (:accounts config) reports-ch)
-            reports (aggregate-reports reports-ch)]
+            writer (load-database conn reports-ch)
+            result { :reader (<!! reader) :w (<!! writer)}
+            reports (read-aggregates conn)]
+        (println result)
         (println (format "Total : %d document(s)" (:count reports)))
         (doseq [report (:reports reports)]
           (console/print-report report))))))
+
+(comment
+  (-main "config.edn")
+  )
