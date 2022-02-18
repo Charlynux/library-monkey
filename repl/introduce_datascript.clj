@@ -29,3 +29,43 @@
             [?u :borrowings ?b]
             [?b :type-de-document ?type]]
           @conn))
+
+(def emprunts-avec-date
+  "Retourne les emprunts correspondants au prédicat `?check-date`
+  sur la date de retour.
+
+  Requête utilisée pour trouver les emprunts en retard."
+  '[:find ?code ?titre ?date
+    :in $ ?check-date
+    :where
+    [_ :borrowings ?b]
+    [?b :titre ?titre]
+    [?b :date-de-retour ?date]
+    [?b :code-barre ?code]
+    [(?check-date ?date)]])
+
+(d/q
+ emprunts-avec-date
+ @conn
+ (fn [date] (.isBefore date (java.time.LocalDate/now))))
+
+(def nb-emprunts-par-delai
+  "Retourne le nombre d'emprunts par délai de retour"
+  '[:find ?delay (count ?code)
+    :in $ ?calculate
+    :where
+    [_ :borrowings ?b]
+    [?b :date-de-retour ?date]
+    [?b :code-barre ?code]
+    [(?calculate ?date) ?delay]])
+
+(->> (d/q
+      nb-emprunts-par-delai
+      @conn
+      (fn [date] (.between
+                  java.time.temporal.ChronoUnit/DAYS
+                  (java.time.LocalDate/now)
+                  date)))
+     (sort-by first <)
+     (map #(zipmap [:nb-jours :documents] %))
+     (clojure.pprint/print-table))
