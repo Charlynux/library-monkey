@@ -52,6 +52,7 @@
 (def nb-emprunts-par-delai
   "Retourne le nombre d'emprunts par délai de retour"
   '[:find ?delay (count ?code)
+    :keys nb-jours documents
     :in $ ?calculate
     :where
     [_ :borrowings ?b]
@@ -66,6 +67,5 @@
                   java.time.temporal.ChronoUnit/DAYS
                   (java.time.LocalDate/now)
                   date)))
-     (sort-by first <)
-     (map #(zipmap [:nb-jours :documents] %))
+     (sort-by :nb-jours <)
      (clojure.pprint/print-table))
