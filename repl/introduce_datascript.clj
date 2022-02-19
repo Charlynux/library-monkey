@@ -69,3 +69,9 @@
                   date)))
      (sort-by :nb-jours <)
      (clojure.pprint/print-table))
+
+(d/q
+ '[:find (count ?b) .
+   :where
+   [?u :borrowings ?b]]
+ @conn)

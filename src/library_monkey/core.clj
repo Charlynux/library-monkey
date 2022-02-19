@@ -64,21 +64,19 @@
 
   (count (map first (d/q '[:find (pull ?r [:pseudo])
                       :where [?r :borrowings ?b]]
-                    @conn)))
+                         @conn))))
 
-  )
 (defn read-aggregates [conn]
   (hash-map
-   :count (ffirst
-           (d/q
-            '[:find (count ?b)
-              :where
-              [?u :borrowings ?b]]
-            @conn))
-   :reports (map first (d/q '[:find (pull ?r [:pseudo :username :borrowings])
-                         :where [?r :borrowings ?b]]
-                       @conn)))
-  )
+   :count (d/q
+           '[:find (count ?b) .
+             :where
+             [?u :borrowings ?b]]
+           @conn)
+   :reports (d/q '[:find [(pull ?r [:pseudo :username
+                                    {:borrowings [:titre :date-de-retour :type-de-document]}]) ...]
+                   :where [?r :borrowings ?b]]
+                 @conn)))
 
 (def amiens-library
   (reify Library
