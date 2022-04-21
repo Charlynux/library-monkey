@@ -33,9 +33,7 @@
     (a/pipeline-blocking
      4
      output
-     (comp
-      (map (fn [report] (d/transact! conn [report])))
-      (map (fn [v] (print "L") (flush) v)))
+     (map (fn [report] (d/transact! conn [report])))
      ch)
     (a/transduce
      (map identity)
@@ -68,11 +66,13 @@
 
 (defn read-aggregates [conn]
   (hash-map
-   :count (d/q
-           '[:find (count ?b) .
-             :where
-             [?u :borrowings ?b]]
-           @conn)
+   :count (or
+           (d/q
+              '[:find (count ?b) .
+                :where
+                [?u :borrowings ?b]]
+              @conn)
+           0)
    :reports (d/q '[:find [(pull ?r [:pseudo :username
                                     {:borrowings [:titre :date-de-retour :type-de-document]}]) ...]
                    :where [?r :borrowings ?b]]
