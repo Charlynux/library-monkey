@@ -1,6 +1,6 @@
 (defproject library-monkey "0.1.0"
   :dependencies [[org.clojure/clojure "1.10.0"]
-                 [http-kit "2.2.0"]
+                 [http-kit "2.6.0"]
                  [http-kit.fake "0.2.1"]
                  [hickory "0.7.1"]
                  [com.cognitect/anomalies "0.1.12"]
