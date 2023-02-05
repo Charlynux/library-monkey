@@ -74,8 +74,11 @@
               @conn)
            0)
    :reports (d/q '[:find [(pull ?r [:pseudo :username
+                                    :credentials-error
                                     {:borrowings [:titre :date-de-retour :type-de-document]}]) ...]
-                   :where [?r :borrowings ?b]]
+                   :where
+                   [?r :pseudo _]
+                   [(get-else $ ?r :borrowings []) ?b]]
                  @conn)))
 
 (def amiens-library
@@ -96,6 +99,7 @@
         writer (load-database conn reports-ch)]
     { :reader (<!! reader) :writer (<!! writer)}))
 
+
 (defn -main
   [config-file & args]
   (let [config (clojure.edn/read-string (slurp config-file))]
@@ -114,4 +118,5 @@
 
 (comment
   (-main "config.edn")
+
   )

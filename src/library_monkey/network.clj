@@ -1,7 +1,8 @@
 (ns library-monkey.network
   (:require [org.httpkit.client :as http]
             [clojure.string :as str]
-            [cognitect.anomalies :as anom]))
+            [cognitect.anomalies :as anom]
+            [clojure.tools.logging :as log]))
 
 (defn find-auth-cookie [cookies]
   (->>
@@ -17,6 +18,7 @@
                        :form-params {:name username
                                      :pwd password}
                        :follow-redirects false})]
+      (log/debug (str "auth-cookie [" username "] : [" (:status response) "]" ))
       (case (:status response)
         302 ((comp find-auth-cookie :set-cookie :headers) response)
         200 {::anom/category ::forbidden}
@@ -35,6 +37,7 @@
                                    "STRCODEDOCBASE" "CAAM"}
                     :headers {"Cookie" cookie}
                     :follow-redirects false})]
+    (log/debug (str "get-borrowings [" (:status response) "]" ))
     (cond
       (<= 200 (:status response) 299) (:body response)
       (<= 400 (:status response) 499) {::anom/category ::anom/incorrect :response response}

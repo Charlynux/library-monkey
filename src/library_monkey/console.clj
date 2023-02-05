@@ -35,11 +35,13 @@
   (let [borrowings (group-by :type-de-document (:borrowings report))]
     (println (format "Carte %s - %s"
                      (or (:pseudo report) (:username report))
-                     (clojure.string/join
-                      " | "
-                      (map
-                       (fn [[type docs]] (str (count docs) " " type))
-                       borrowings))))
+                     (if (empty? borrowings)
+                       "Aucun emprunt"
+                       (clojure.string/join
+                        " | "
+                        (map
+                         (fn [[type docs]] (str (count docs) " " type))
+                         borrowings)))))
     (if-let [cred-error (:credentials-error report)]
       (println "Erreur lors de l'authenfication : " cred-error)
       (cond
