@@ -7,7 +7,7 @@
    [library-monkey.console :as console]
    [clojure.spec.alpha :as s]
    [cognitect.anomalies :as anom]
-   [clojure.core.async :as a :refer [<!! <! go chan]]
+   [clojure.core.async :as a :refer [<!! chan]]
    [datascript.core :as d]))
 
 (defprotocol Library
@@ -19,7 +19,10 @@
   (let [cookie (authenticate library username password)]
     (if (::anom/category cookie)
       (assoc creds :credentials-error (::anom/category cookie))
-      (assoc creds :borrowings (get-borrowings library cookie)))))
+      (let [borrowings (get-borrowings library cookie)]
+        (doseq [b borrowings]
+          (renew-borrowing! library cookie b))
+        (assoc creds :borrowings (get-borrowings library cookie))))))
 
 (defn generate-reports [library credentials ch]
   (a/pipeline-blocking
@@ -45,6 +48,11 @@
              :borrowings {:db/type :db.type/ref
                           :db/cardinality :db.cardinality/many}})
 (comment
+  (require '[portal.api :as p])
+
+  (def p (p/open))
+  (add-tap #'p/submit)
+
 
   (require '[clojure.spec.gen.alpha :as gen])
   (def conn (d/create-conn schema))
@@ -119,4 +127,5 @@
 (comment
   (-main "config.edn")
 
+  (tap> (hickory.core/as-hiccup (hickory.core/parse @p)))
   )

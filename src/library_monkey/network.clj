@@ -18,6 +18,7 @@
                        :form-params {:name username
                                      :pwd password}
                        :follow-redirects false})]
+      (tap> {:username username :response response})
       (log/debug (str "auth-cookie [" username "] : [" (:status response) "]" ))
       (case (:status response)
         302 ((comp find-auth-cookie :set-cookie :headers) response)
@@ -62,7 +63,9 @@
 (defn renew [cookie barcode]
   (let [response @(http/get "http://bibliotheques.amiens.fr/clientBookline/recherche/dossier_lecteur.asp"
                             {:query-params {"STRCODEDOCBASE" "CAAM"
+                                            "ACT" "RENEW"
                                             "VALUE" barcode}
                              :headers {"Cookie" cookie}
                              :follow-redirects false})]
+    (tap> {:barcode barcode :response response})
     response))

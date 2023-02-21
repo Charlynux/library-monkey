@@ -7,7 +7,8 @@
                  [org.clojure/core.async "0.4.500"]
                  [datascript "1.3.9"]
                  [org.clojure/tools.logging "1.2.4"]
-                 [org.clojure/test.check "0.9.0"]]
+                 [org.clojure/test.check "0.9.0"]
+                 [djblue/portal "0.35.1"]]
   :plugins [[lein-cljfmt "0.5.7"]]
   :main ^:skip-aot library-monkey.core
   :target-path "target/%s"
